@@ -1,4 +1,4 @@
-var conn = require('../models/db.js')
+/*var conn = require('../models/db.js')
 var pool = require('../models/pool.js');
 var User = require('../models/User.js');
 var renderData = {user:null};
@@ -61,5 +61,5 @@ module.exports = function(app){
 		
 	})
 }
-
+*/
 

@@ -1,4 +1,4 @@
-module.exports = function(app){
+/*module.exports = function(app){
 	app.get('/logout',function(req,res){
 		req.session.user = null;
 		res.cookie('user','null',{maxAge:0});
@@ -6,4 +6,4 @@ module.exports = function(app){
 		global.renderData['user'] = null;
 		res.redirect('/home');
 	});
-};
+};*/

@@ -1,11 +1,7 @@
-var mysql = require('mysql');
+var mongoose = require('mongoose');
 
-var conn = mysql.createPool({
-			host:'localhost',
-			user:'wanlf',
-			password:'wlf112111',
-			port:'3306',
-			database:'VoidMirage',
-		});
-
-module.exports = conn;
+mongoose.connect('mongodb://localhost/voidMirage');
+mongoose.connection.on('open',function(){
+	console.log('connected successful');
+});
+module.exports = mongoose;

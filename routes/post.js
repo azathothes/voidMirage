@@ -1,4 +1,4 @@
-var User = require('../models/User.js');
+/*var User = require('../models/User.js');
 var source = require('../models/source.js');
 
 module.exports = function(app){
@@ -60,3 +60,4 @@ function cksession(req,res,next)
 	}
 	next();
 }
+*/

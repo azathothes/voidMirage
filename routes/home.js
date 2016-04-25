@@ -1,11 +1,11 @@
-var conn = require('../models/db.js');
+/*var conn = require('../models/db.js');
 global.renderData = {user:null};
 module.exports = function(app){
 	
-	app.get('/home',ckcookie);
-	app.get('/home',cksession);
+	//app.get('/home',ckcookie);
+	//app.get('/home',cksession);
 	app.get('/home',function(req,res){
-		res.render('index',renderData);
+		res.render('index',{user:"test"});
 	});
 	
 
@@ -26,4 +26,4 @@ function cksession(req,res,next){
 		renderData['user'] = req.session.user;
 	}
 	next();
-};
+};*/

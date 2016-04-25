@@ -1,4 +1,4 @@
-var User = require('../models/User');
+/*var User = require('../models/User');
 var Source = require('../models/source');
 module.exports = function(app){
 	app.get('/blog/:user_name',cksession);
@@ -45,4 +45,4 @@ function cksession(req,res,next){
 		res.redirect('/login');
 	}
 	next();
-};
+};*/
