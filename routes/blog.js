@@ -4,38 +4,35 @@ module.exports = function(app){
 	//app.get('/blog/:user_name',cksession);
 	app.get('/blog/:user_name',function(req,res){
 		var username = req.params.user_name;
-		User.findByNames(username,username,function(err,result){
+		User.find({user_id:username},function(err,user){
 			if(err)
 			{
+				res.redirect('/error');
+				res.end();
 				return;
 			}
-			if(result.length == 0)
+			if(user == null)
 			{
 				res.redirect('/error');
 				res.end();
 				return;
 			}
-			if(result[0].name != username)
+			else
 			{
-				res.redirect('/error');
-				res.end();
-				return;
+				var userid = user._id;
+				Source.find({poster_id:userid},function(err,arts){
+					if(err)
+					{
+						res.redirect('/error');
+						res.end();
+						return;
+					}
+					res.render('/blog',{user:user,listArt:arts});
+					res.end();
+				})
 			}
-			Source.find(result[0].id,1,function(err,resouce){
-				if(err)
-				{
-					return;
-				}
-				if(resouce.length == 0)
-				{
-					res.render('blog',{viewData:null});
-					return;
-				}
-				res.render('blog',{viewData:{html:result[0].content , user:result[0].id}});
-				return;
-			});
 		});
-	});
+		
 
 };
 

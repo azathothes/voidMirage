@@ -4,20 +4,17 @@
 	<title>blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<link href="./content/Content/bootstrap.min.css" rel="stylesheet"></head>
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
-	<script src="./jquery-1.11.1.min.js"></script>
-	<script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
-	<script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
-	<script type="text/javascript">
-		
-	</script>
+	<link href="../public/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+	<link rel="stylesheet" href="../public/stylesheets/editor.css">
+	<script src="../public/javascripts/jquery/jquery-1.11.1.min.js"></script>
+	<script src="../public/javascripts/editor.js"></script>
+	<script src="../public/javascripts/marked.js"></script>
 	<style type="text/css">
 		.input-group{
 			margin-top: 10px;
 		}
 	</style>
-<body>
+<body style="color: #333">
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">VoidMirage</a>
@@ -54,7 +51,7 @@
 		</div>
 	</nav>
 	<div class="row col-md-12">
-	<div class="row col-md-2">
+	<div class="row col-md-2" style="margin-left: 20px">
 	<div class="panel panel-default">
 				<img src="./test.jpg" 
    class="img-circle img-responsive center-block" style="padding-top: 10px;padding-bottom: 10px">
@@ -76,7 +73,7 @@
 				</ul>
 			</div>
 	</div>
-	<div class="row col-md-6 col-md-offset-2">
+	<div class="row col-md-6 col-md-offset-2" style="margin-top: 100px">
 		<div class="input-group">
 		 <span class="input-group-addon">文章标题:</span>
          <input type="text" id="art_name_m" class="form-control">
@@ -88,14 +85,19 @@
          <input type="text" id="art_name_s" class="form-control">
          
       </div>
-		<div class="input-group">
+		<div class="input-group" style="width: 629px;height:300px;background-color: white">
 		 <label for="name">文本框</label>
-    	 <textarea class="form-control" rows="3"></textarea>
+    	 <textarea class="form-control" rows="6"></textarea>
       </div>
 	</div>
 	</div>
-	<script src="./content/Scripts/jquery.min.js"></script>
-<script src="./content/Scripts/bootstrap.min.js"></script>
+<script src="../public/javascripts/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var editor = new Editor();
+			editor.render();
+		});
+	</script>
 </body>
 
 </html>
