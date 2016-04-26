@@ -1,38 +1,41 @@
 var User = require('../models/User.js');
 module.exports = function(app){
-	/*
-	app.use(function(req,res,next){
-		res.locals.iderr = req.session.iderr ? req.session.iderr : null;
-		res.locals.passerr = req.session.passerr ? req.session.passerr : null;
-		req.session.iderr = req.session.passerr = null;
-		next();
+	app.get('/userLogin',function(req,res){
+		console.log(req.cookies.user)
+		if(req.cookies.user != null)
+		{
+			res.redirect('/home');
+			res.end();
+			return;
+		}
+		res.render('userLogin');
 	});
-	*/
-	app.get('/login',function(req,res){
-		res.render('login');
-	});
-	app.post('/login',function(req,res){
+	app.post('/userLogin',function(req,res){
 		var loginid = req.body.userid;
 		var passwd = req.body.userpwd;
-		User.findOne({user_id:loginid,user_pwd:passwd},function(err,user){
+		User.findOne({user_id:loginid},function(err,user){
 			if(err)
 			{
-				res.write({'issuccess':false,'message':'server error'});
+				res.json({"issuccess":"no","message":"服务器内部错误"});
 				res.end();
 				return;
 			}
 			if(user == null)
 			{
-				res.write({'issuccess':false,'message':'登录信息有误。'});
+				res.json({"issuccess":"no","message":"该用户不存在！"});
 				res.end();
 				return;
 			}
-			else
+			if(user['user_pwd'] != passwd)
 			{
-				//req.session.user = result;
-				res.redirect('/home');
+				res.json({"issuccess":"no","message":"密码错误"});
 				res.end();
+				return;
 			}
+			res.cookie('user',loginid,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
+			res.json({"issuccess":"ok","message":"ok"});
+			res.end();
+			return;
 		});
 	});
 };

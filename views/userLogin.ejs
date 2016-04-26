@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link href="/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+	<style type="text/css">
+	.input-group{
+		margin-top: 10px;
+	}
+	.jumbotron{
+		margin-top: 100px;
+		padding-bottom: 60px;
+	}
+	.btn-info{
+		margin-top: 10px;
+		float: right;
+	}
+	#log-info{
+		font-family: 'microsoft YAHEI';
+		color: red;
+		font-size: 20px;
+		margin-top: 13px;
+		float: left;
+	}
+	</style>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">VoidMirage</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="/home">首页</a>
+				</li>
+				<li class="active">
+					<a href="/signUp">注册</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+<div class="container">
+	<div class="row col-md-12" >
+
+		<div class="row col-md-4 col-md-offset-4">
+		<div class="jumbotron"><div class="input-group">
+         <span class="input-group-addon glyphicon glyphicon-user"></span>
+         <input type="text" id="userID" class="form-control" placeholder="userid">
+      </div>
+      <div class="input-group">
+         <span class="input-group-addon glyphicon glyphicon-lock"></span>
+         <input type="password" id="userPwd" class="form-control" placeholder="password">
+      </div>
+      <span id="log-info"></span>
+      <button type="button" id="btnLog" class="btn btn-info">登录</button>
+		</div></div>
+			
+	</div>
+</div>
+<script src="/javascripts/jquery/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('#btnLog').click(function(){
+    	if($('#userID').val().length < 6)
+    	{
+    		$('#log-info').text('用户名长度太短');
+    		return;
+    	};
+    	if($('#userPwd').val().length < 6)
+    	{
+    		$('#log-info').text('密码长度错误');
+    		return;
+    	};
+    	$.post('/userLogin',{userid:$('#userID').val(),userpwd:$('#userPwd').val()},function(data){
+    		if(data.issuccess == "ok")
+    		{
+    			window.location = "/home";
+    			return;
+    		}
+    		else
+    		{
+    			$('#log-info').text(data.message);
+    		}
+    	});
+    });
+  
+});
+</script>
+</body>
+
+</html>

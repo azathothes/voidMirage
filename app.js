@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('123321'));
+app.use(cookieParser());
 /*app.use(session(
    {secret:'key',
    name:'user_session',

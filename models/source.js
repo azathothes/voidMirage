@@ -1,4 +1,18 @@
-var pool = require('./pool.js');
+var mongoose = require('./db.js');
+
+var blogArtSchema = mongoose.Schema({
+    art_name: String,
+    blog_id:String,
+    blog_title_main:String,
+    blog_title_side:String,
+    
+});
+
+
+var blogArtModel = mongoose.model('User',blogArtSchema,'blog');
+
+module.exports = blogArtModel;
+
 
 var Source = function(source){
 	this.id_poster = source.id_poster;

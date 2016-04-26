@@ -1,7 +1,7 @@
-/*var User = require('../models/User');
+var User = require('../models/User');
 var Source = require('../models/source');
 module.exports = function(app){
-	app.get('/blog/:user_name',cksession);
+	//app.get('/blog/:user_name',cksession);
 	app.get('/blog/:user_name',function(req,res){
 		var username = req.params.user_name;
 		User.findByNames(username,username,function(err,result){
@@ -45,4 +45,4 @@ function cksession(req,res,next){
 		res.redirect('/login');
 	}
 	next();
-};*/
+};

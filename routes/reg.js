@@ -1,65 +1,50 @@
-/*var conn = require('../models/db.js')
-var pool = require('../models/pool.js');
-var User = require('../models/User.js');
-var renderData = {user:null};
+var UserModel = require('../models/User.js');
+//var renderData = {user:null};
 module.exports = function(app){
-       app.get('/reg',function(req,res){
-        	res.render('reg');
+    app.get('/signup',function(req,res){
+        	res.render('signup');
 	})
-	app.post('/reg',function(req,res){
-		console.log('about to reg now');
-		var passwdfirst = req.body.psd1;
-		var passwdsecon = req.body.psd2;
-		if(passwdfirst !== passwdsecon)
-		{
-			console.log('passwd error captured');
-			req.session.passwderror = 'passwd dont same';
-			res.redirect('/reg');
-			res.end();
-			return;
-		}
-		var user = new User({
-			name:req.body.name,
-			passwd:passwdfirst,
-			email:req.body.email,
-			phone:req.body.phone,
-			loginid:req.body.loginname,
-			level:1
-		});
-		console.log('find names here');
-		User.findByNames(user.name,user.loginid,function(err,result){
-			if(result.length != 0)
+	app.post('/signup',function(req,res){
+		var user_ids = req.body.userid;
+		var user_pwds = req.body.userpwd1;
+		UserModel.findOne({user_id:user_ids},function(err,user_find){
+			if(err)
 			{
-				console.log('repuser!!!');
-				console.log(result);
-				console.log(result.name);
-				console.log(user.name);
-				if(result[0].name === user.name)
-				{
-					req.session.nameerror = 'same username';
-				
-				}
-				if(result[0].loginname === user.loginid)
-				{
-					req.session.loginerror = 'same login name';
-				
-				}
-				res.redirect('/reg');
+				res.json({"isregok":"no","message":"服务器内部错误，稍后再试。"});
 				res.end();
 				return;
 			}
-			user.save(function(err,user){
-			if(err)
+			if(user_find != null)
 			{
-				console.log("reg error occured: "+err)
+				res.json({"isregok":"no","message":"重复的用户名"});
+				res.end();
+				return;
 			}
-			 
-			res.cookie('user',user);
-			res.redirect('/home');
-		});
-		});
-		
+			else
+			{
+				var user = new UserModel({
+					user_id:user_ids,
+					user_pwd:user_pwds,
+					create_time:new Date,
+					is_activated:1
+				});
+				user.save(function(err,user_save){
+					if(err)
+					{
+						res.json({"isregok":"no","message":"服务器内部错误，稍后再试。"});
+						res.end();
+						return;
+					}
+					else
+					{
+						res.json({"isregok":"ok","message":"ok"});
+						res.end();
+						return;
+					}
+				});
+			}
+		})
 	})
 }
-*/
+
 

@@ -6,10 +6,9 @@ var userSchema = mongoose.Schema({
     user_pwd:String,
     create_time:Date,
     is_activated:Number,
-    age: Number
 });
 
 
-var userModel = mongoose.Model('User',userSchema,'user');
+var userModel = mongoose.model('User',userSchema,'user');
 
 module.exports = userModel;
