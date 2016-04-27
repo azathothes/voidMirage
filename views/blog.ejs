@@ -49,7 +49,7 @@
    class="img-circle img-responsive center-block" style="padding-top: 10px;padding-bottom: 10px">
 				<button style="margin-bottom: 10px" type="button" class="btn btn-primary btn-lg center-block">
 					<span class="glyphicon glyphicon-user"></span>
-					<%=blogInfo.user%>
+					<%=blogInfo.user.user_id%>
 				</button>
 
 			</div>
@@ -63,7 +63,7 @@
 		<div class="col-md-10">
 			<div class="jumbotron">
 				<div class="container">
-					<h1><%=blogInfo.name%></h1>
+					<h1><%=blogInfo.blog.blog_name%></h1>
 				</div>
 			</div>
 			<div class="panel">

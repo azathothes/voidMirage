@@ -11,7 +11,7 @@ var blogArtSchema = mongoose.Schema({
 });
 
 
-var blogArtModel = mongoose.model('User',blogArtSchema,'blog');
+var blogArtModel = mongoose.model('BlogArts',blogArtSchema,'blogArts');
 
 module.exports = blogArtModel;
 

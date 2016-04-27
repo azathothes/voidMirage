@@ -1,4 +1,5 @@
 var UserModel = require('../models/User.js');
+var BlogModel = require('../models/blogModel.js');
 //var renderData = {user:null};
 module.exports = function(app){
     app.get('/signup',function(req,res){
@@ -37,9 +38,27 @@ module.exports = function(app){
 					}
 					else
 					{
-						res.json({"isregok":"ok","message":"ok"});
-						res.end();
-						return;
+						var _userid = user_save._id;
+						var Blog = new BlogModel({
+							blog_name: user_ids+"的博客",
+    						blog_owner: _userid,
+    						blog_createDate:new Date
+						});
+						Blog.save(function(err,blog_save){
+							if(err)
+							{
+							    user.remove({user_id:user_save.user_id});
+							    res.json({"isregok":"no","message":"服务器内部错误，稍后再试。"});
+								res.end();
+								return;
+							}
+							else
+							{
+								res.json({"isregok":"ok","message":"ok"});
+								res.end();
+								return;
+							}
+						});
 					}
 				});
 			}

@@ -1,12 +1,12 @@
-/*var User = require('../models/User.js');
+var User = require('../models/User.js');
 var source = require('../models/source.js');
 
 module.exports = function(app){
-	app.get('/post/:user',cksession);
-	app.get('/post/:user',function(req,res){
-		res.render('post');
+	//app.get('/post/:user',cksession);
+	app.get('/addBlog',function(req,res){
+		res.render('addArticle');
 	});
-	app.post('/post/:user',function(req,res){
+	app.post('/addBlog',function(req,res){
 		//find user by user param
 		var username = req.params.user;
 		var contents = req.body.html;
@@ -60,4 +60,3 @@ function cksession(req,res,next)
 	}
 	next();
 }
-*/

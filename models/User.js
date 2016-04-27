@@ -6,6 +6,7 @@ var userSchema = mongoose.Schema({
     user_pwd:String,
     create_time:Date,
     is_activated:Number,
+    user_icon:String
 });
 
 
