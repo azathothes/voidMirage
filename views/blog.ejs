@@ -4,7 +4,23 @@
 	<title>blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<link href="/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+	<link href="/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	.icon{
+		width: 30px;
+		height: 30px;
+		float: left;
+	}
+	.count{
+		font-size: 15px;
+	}
+
+	.topic_title{
+		margin-left: 10px
+	}
+	</style>
+
+</head>	
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
@@ -67,25 +83,26 @@
 				</div>
 			</div>
 			<div class="panel">
-				<%if(blogInfo.listArt.length != 0){%>
-				<%for(var i = 0;i<blogInfo.listArt.length;i++){%>
+			<%if(blogInfo.listArt.length>0){%>
+			<%for(var i = 0;i < blogInfo.listArt.length;i++){%>	
 				<div class="cell">
-
-					<span class="reply_count pull-left">
-						<span class="count_of_replies" title="回复数"><%=i.comments%></span>
+					<a class='icon'><img src="<%=blogInfo.user.user_icon%>" style="width: 30px;height: 30px" /></a>
+					<span class="reply_count pull-left" style="margin-left:10px">
+						<span class="count" title="回复数">1</span>
 						<span class="count_seperator">/</span>
-						<span class="count_of_visits" title="点击数"><%=i.clicks%></span>
+						<span class="count" title="点击数">2</span>
 					</span>
 					<div class="topic_title_wrapper">
 
-						<a class="topic_title" href="/blogArt/<%=blogInfo.listArt[i]._id%>" ><%=blogInfo.listArt[i].blog_title_main%></a>
+						<a class="topic_title" href="/topic/55c5f41139273b92193362fb" ><%=blogInfo.listArt[i].blog_title_main%></a>
 						<p class="text-right text-top"><%=blogInfo.listArt[i].post_date%></p>
 					</div>
 
 				</div>
-				<%}%>
-				<%}%>
-				
+				<hr style="margin-top: 0px;margin-bottom: 3px"/>
+			<%}%>
+			<%}%>
+
 
 		</div>
 	</div>

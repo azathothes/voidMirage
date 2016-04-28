@@ -33,7 +33,7 @@ module.exports = function(app){
 				res.end();
 				return;
 			}
-			var cons = new source({id_poster:user._id,blog_title_main:req.body.title,content:req.body.content});
+			var cons = new source({id_poster:user._id,blog_title_main:req.body.title,content:req.body.content,post_date:new Date});
 			cons.save(function(err,id){
 				if(err)
 				{
