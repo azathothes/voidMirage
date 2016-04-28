@@ -1,7 +1,6 @@
 var User = require('../models/User.js');
 module.exports = function(app){
 	app.get('/userLogin',function(req,res){
-		console.log(req.cookies.user)
 		if(req.cookies.user != null)
 		{
 			res.redirect('/home');
@@ -32,6 +31,7 @@ module.exports = function(app){
 				res.end();
 				return;
 			}
+			req.session.user = user._id;
 			res.cookie('user',loginid,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
 			res.json({"issuccess":"ok","message":"ok"});
 			res.end();

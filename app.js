@@ -15,13 +15,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-/*app.use(session(
+app.use(session(
    {secret:'key',
    name:'user_session',
    cookie:{maxAge:180000},
    resave: true,
    saveUninitialized: false}
-));*/
+));
 app.use(express.static(path.join(__dirname, 'public')));
 
 route(app);

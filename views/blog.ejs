@@ -45,7 +45,7 @@
 	<div class="row col-md-12" >
 		<div class="col-md-2">
 			<div class="panel panel-default">
-				<img src="/usericon/<%=blogInfo.user.icon%>" 
+				<img src="<%=blogInfo.user.user_icon%>" 
    class="img-circle img-responsive center-block" style="padding-top: 10px;padding-bottom: 10px">
 				<button style="margin-bottom: 10px" type="button" class="btn btn-primary btn-lg center-block">
 					<span class="glyphicon glyphicon-user"></span>
@@ -63,19 +63,12 @@
 		<div class="col-md-10">
 			<div class="jumbotron">
 				<div class="container">
-					<h1><%=blogInfo.blog.blog_name%></h1>
+					<h1><%=blogInfo.user.blog_name%></h1>
 				</div>
 			</div>
 			<div class="panel">
-				<div class="btn-toolbar" role="toolbar">
-					<div class="btn-group">
-						<button type="button" class="btn btn-default">按钮 1</button>
-						<button type="button" class="btn btn-default">按钮 2</button>
-						<button type="button" class="btn btn-default">按钮 3</button>
-					</div>
-				</div>
-				<%if(blogInfo.listArt != null){%>
-				<%for(i in blogInfo.listArt){%>
+				<%if(blogInfo.listArt.length != 0){%>
+				<%for(var i = 0;i<blogInfo.listArt.length;i++){%>
 				<div class="cell">
 
 					<span class="reply_count pull-left">
@@ -85,8 +78,8 @@
 					</span>
 					<div class="topic_title_wrapper">
 
-						<a class="topic_title" href="/blogArt/<%=i.id%>" ><%=i.title%></a>
-						<p class="text-right text-top"><%=i.postDate%></p>
+						<a class="topic_title" href="/blogArt/<%=blogInfo.listArt[i]._id%>" ><%=blogInfo.listArt[i].blog_title_main%></a>
+						<p class="text-right text-top"><%=blogInfo.listArt[i].post_date%></p>
 					</div>
 
 				</div>

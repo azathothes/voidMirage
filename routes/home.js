@@ -2,9 +2,7 @@ global.renderData = {user:null};
 module.exports = function(app){
 	
 	app.get('/home',ckcookie);
-	//app.get('/home',cksession);
 	app.get('/home',function(req,res){
-		console.log(renderData);
 		res.render('home',renderData);
 	});
 	

@@ -63,7 +63,24 @@
 <script src="/javascripts/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+			QueryString = {  
+			    data: {},  
+    			Initial: function() {  
+        			var aPairs, aTmp;  
+        			var queryString = new String(window.location.search);  
+        			queryString = queryString.substr(1, queryString.length); //remove   "?"     
+        			aPairs = queryString.split("&");  
+        			for (var i = 0; i < aPairs.length; i++) {  
+            			aTmp = aPairs[i].split("=");  
+            			this.data[aTmp[0]] = aTmp[1];  
+        			}  
+    			},  
+    		GetValue: function(key) {  
+				return this.data[key]; 
+    			}  
+			}; 
     $('#btnLog').click(function(){
+    	QueryString.Initial(); 
     	if($('#userID').val().length < 6)
     	{
     		$('#log-info').text('用户名长度太短');
@@ -74,10 +91,18 @@
     		$('#log-info').text('密码长度错误');
     		return;
     	};
-    	$.post('/userLogin',{userid:$('#userID').val(),userpwd:$('#userPwd').val()},function(data){
+    	var retUrl = QueryString.GetValue('return');  
+    	$.post('/userLogin',{userid:$('#userID').val(),userpwd:$('#userPwd').val(),return:retUrl},function(data){
     		if(data.issuccess == "ok")
     		{
-    			window.location = "/home";
+    			if(retUrl != undefined)
+    			{
+    				window.location=retUrl;
+    			}
+    			else
+    			{
+    				window.location = "/home";
+    			}
     			return;
     		}
     		else

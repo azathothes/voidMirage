@@ -4,59 +4,47 @@ var source = require('../models/source.js');
 module.exports = function(app){
 	//app.get('/post/:user',cksession);
 	app.get('/addBlog',function(req,res){
-		res.render('addArticle');
+		if(!req.cookies['user'])
+		{
+			res.redirect('/userLogin');
+			res.end();
+		}
+		res.render('addArticle',{user_id:req.cookies['user']});
 	});
 	app.post('/addBlog',function(req,res){
-		//find user by user param
-		var username = req.params.user;
-		var contents = req.body.html;
+		console.log('post arts');
+		if(req.cookies.user == null)
+		{
+			res.json({"issuccess":"no","message":"re_log"});
+			res.end();
+			return;
+		}
 		//check user avalible
-		User.find(username,function(err,user){
+		User.findOne({user_id:req.cookies.user},function(err,user){
 			if(err)
 			{
-				res.redirect('/error');
+				res.json({"issuccess":"no","message":"server_error1"});
 				res.end();
+				return;
 			}
-			if(user.length == 0)
+			if(user == null)
 			{
-				res.redirect('/error');
+				res.json({"issuccess":"no","message":"user_find_error"});
 				res.end();
+				return;
 			}
-			if(user[0].loginid != username)
-			{
-				res.redirect('/login');
-				res.end();
-			}
-			var cons = new source({id_poster:user[0].id,id_type:1,content:contents,src:""});
+			var cons = new source({id_poster:user._id,blog_title_main:req.body.title,content:req.body.content});
 			cons.save(function(err,id){
 				if(err)
 				{
-					res.redirect('/error');
+					res.json({"issuccess":"no","message":"server_error2"});
 					res.end();
 				}
-				if(!id)
-				{
-					res.redirect('/error');
-					res.end();
-				}
-				res.redirect('/blog/'+user.loginid);
+				console.log('save ok');
+				res.json({"issuccess":"ok","message":"ok","user":user.user_id});
+				res.end();
 			});
 		});
 	});
 
 };
-function cksession(req,res,next)
-{
-	if(!req.session.user)
-	{
-		res.redirect('/login');
-		res.end();
-	}
-	var user = req.params.user;
-	if(user != req.session.user)
-	{
-		res.redirect('/login');
-		res.end();
-	}
-	next();
-}

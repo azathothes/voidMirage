@@ -1,13 +1,13 @@
 var mongoose = require('./db.js');
 
 var blogArtSchema = mongoose.Schema({
-    art_name: String,
-    id_poster: String,
-    blog_id:String,
+    id_poster:  {type: String} ,
     blog_title_main:String,
-    blog_title_side:String,
-    post_date:Date,
-    classify_id:String
+    content:String,
+    post_date:{ type: Date, default: new Date},
+    classify_id:{ type: String, default: null},
+    comments:{type:Number,default:0},
+    clicks:{type:Number,default:0}
 });
 
 

@@ -69,7 +69,7 @@
    class="img-circle img-responsive center-block" style="padding-top: 10px;padding-bottom: 10px">
 				<button style="margin-bottom: 10px" type="button" class="btn btn-primary btn-lg center-block">
 					<span class="glyphicon glyphicon-user"></span>
-					user_name
+					<%=user_id%>
 				</button>
 
 			</div>
@@ -103,6 +103,37 @@
 		$(function(){
 			var editor = new Editor();
 			editor.render();
+
+			$('#btnCfm').click(function(){
+				if($('#art_name_m').val().length == 0)
+				{
+					alert("标题栏不能为空");
+					return;
+				}
+				if(editor.codemirror.getValue().length == 0)
+				{
+					alert("内容不能为空");
+					return;
+				}
+				$.post('/addBlog',{title:$('#art_name_m').val(),content:editor.codemirror.getValue()},function(data){
+    				if(data.issuccess == "ok")
+    				{
+    					window.location = "/blog/"+data.user;
+    					return;
+    				}
+    				if(data.message == "re_log")
+    				{
+    					window.location = "/userLogin?return="+"/addBlog";
+    					return;
+    				}
+    				if(data.issuccess == "no")
+    				{
+    					alert(data.message);
+    					window.location = "/userLogin?return="+"/addBlog";
+    					return;
+    				}
+				});
+			});
 		});
 	</script>
 </body>
