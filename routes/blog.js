@@ -20,9 +20,7 @@ module.exports = function(app){
 			else
 			{
 				var userid = user._id;
-				console.log(userid)
 				Source.find({id_poster:userid},function(err,arts){
-					console.log(arts);
 					if(err)
 					{
 						res.redirect('/error');

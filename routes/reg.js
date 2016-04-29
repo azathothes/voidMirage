@@ -35,7 +35,7 @@ module.exports = function(app){
 						return;
 					}
 					req.session.user = user_save._id;
-					res.cookie('user',loginid,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
+					res.cookie('user',user_save.user_id,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
 					res.json({"isregok":"ok","message":"ok"});
 					res.end();
 					return;

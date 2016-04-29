@@ -6,7 +6,7 @@ module.exports = function(app){
 	app.get('/addBlog',function(req,res){
 		if(!req.cookies['user'])
 		{
-			res.redirect('/userLogin');
+			res.redirect('/userLogin?return=/addBlog');
 			res.end();
 		}
 		res.render('addArticle',{user_id:req.cookies['user']});
