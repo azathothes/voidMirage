@@ -1,0 +1,204 @@
+.navbar-nav{
+	margin-right: 30px;
+	float: right;
+}
+#main{
+	width: 90%;
+	margin:15px auto;
+	min-height: 400px;
+}
+#sidebar{
+	width: 290px;
+	float: right;
+	margin-bottom: 20px;
+	min-height: 400px;
+}
+#content{
+	width: 1044px;
+	float: left;
+	background-color: white;
+}
+.panel{
+	margin-bottom: 10px
+}
+.cell{
+	margin: 10px;
+	font-size: 14px;
+}
+.cell>a>img{
+	width: 30px;
+	height: 30px;
+}
+.cominfo{
+	width: 70px;
+	display: inline-block;
+	text-align: center;
+}
+.com{
+	color: #9e78c0;
+}
+.total{
+	color: #b4b4b4;
+}
+.time{
+	color:#778087;
+	display: inline-block;
+	float: right;
+	margin-top: 5px;
+}
+.line{
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+body{
+	background-color: #e1e1e1;
+}
+#userinfo{
+	margin-bottom: 13px;
+}
+#header{
+	padding: 10px;
+	color: #51585c;
+	background-color: #f6f6f6;
+	border-radius: 3px 3px 0 0;
+}
+#uinfo{
+	padding: 10px;
+	background-color: white;
+	border-radius: 0 0 3px 3px;
+}
+#u_avator{
+	width: 48px;
+	height: 48px;
+	border-radius: 4px 4px 4px 4px;
+}
+#uname{
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 18px;
+}
+#signature{
+	margin-top: 10px;
+	font-size: 18px;
+	color: #778087;
+}
+#pagelist{
+	display: inline-block;
+	padding: 0px;
+	margin-left: 10px;
+	margin-top: 10px;
+	list-style: none;
+}
+#pagelist li{
+	margin-left: 0px;
+	display: inline;
+}
+.pagenum{
+	line-height: 20px;
+	padding: 4px 12px;
+	border: 1px solid #ddd;
+}
+#btnLogin{
+	background-color: green;
+	color: white;
+	display: inline-block;
+	font-size: 14px;
+	padding: 5px 15px 5px 15px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.header{
+	padding: 5px;
+	background-color: #F6F6F6;
+}
+#poster_header{
+	font-size: 18px;
+	font-family: "Arial";
+	color: green;
+}
+#submit{
+	float: right;
+	margin-right: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#upload{
+	display: none;
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top:30%;
+	left: 35%;
+	border-radius: 7px;
+	z-index: 1099;
+	background-color: white;
+}
+#wall{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	display: none;
+	opacity: 0.3;
+}
+#close{
+	display: inline-block;
+	margin: 8px;
+	float: right;
+	padding: 5px 10px 5px 10px;
+	background-color: green;
+	opacity: 0.5;
+	color: white;
+	cursor: pointer;
+	border-radius: 3px;
+}
+#uploadTil
+{
+	display: inline-block;
+	margin:8px;
+	font-size: 19px;
+
+}
+#updTitle{
+	border-bottom: 1px solid #EEEEEE;
+}
+#infos ol li{
+	list-style: none;
+	margin: 8px 0px;
+}
+#infos ol{
+	padding: 5px;
+}
+#tips{
+	display:inline-block;
+	padding:15px;
+	margin:auto 78px;
+}
+#hidden{
+	display: none;
+}
+#art-title{
+	display: inline-block;
+	font-size: 22px;
+	font-weight: 700;
+	margin: 8px 0px;
+	margin-bottom: 0px;
+	width: 70%;
+}
+#art-header{
+	padding: 10px;
+}
+#art-info{
+	margin-top: 3px;
+}
+#art-info span{
+	margin-left: 5px;
+}
+#line-block{
+	margin-top: 0px;
+}
+#art-content-panel{
+	padding: 10px;
+}

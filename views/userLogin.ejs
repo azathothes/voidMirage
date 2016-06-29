@@ -4,7 +4,7 @@
 	<title>blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<link href="/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet"></head>
 	<style type="text/css">
 	.input-group{
 		margin-top: 10px;
@@ -28,14 +28,11 @@
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">VoidMirage</a>
+			<a class="navbar-brand" href="/home">VoidMirage</a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="/home">首页</a>
-				</li>
-				<li class="active">
+				<li style="float: right;">
 					<a href="/signUp">注册</a>
 				</li>
 			</ul>
@@ -59,8 +56,8 @@
 			
 	</div>
 </div>
-<script src="/javascripts/jquery/jquery-1.11.1.min.js"></script>
-<script src="/javascripts/bootstrap/bootstrap.min.js"></script>
+<script src="/javascripts/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 			QueryString = {  
@@ -92,7 +89,7 @@
     		return;
     	};
     	var retUrl = QueryString.GetValue('return');  
-    	$.post('/userLogin',{userid:$('#userID').val(),userpwd:$('#userPwd').val(),return:retUrl},function(data){
+    	$.post('/login',{userid:$('#userID').val(),userpwd:$('#userPwd').val(),return:retUrl},function(data){
     		if(data.issuccess == "ok")
     		{
     			if(retUrl != undefined)
@@ -101,7 +98,7 @@
     			}
     			else
     			{
-    				window.location = "/home";
+    				window.location = "/";
     			}
     			return;
     		}

@@ -11,8 +11,8 @@ var userSchema = mongoose.Schema({
     email:{ type: String, default: null },
     age:{ type: Number, default: 0 },
     address:{ type: String, default: null},
-    blog_name: String,
-    blog_createDate:{type:Date,default:new Date}
+    favourate:{type:[String],default:[]},
+    signature:{type:String,default:"这个用户很懒，什么都没留下"}
 });
 
 

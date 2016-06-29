@@ -1,15 +1,15 @@
 var User = require('../models/User.js');
 module.exports = function(app){
-	app.get('/userLogin',function(req,res){
-		if(req.cookies.user != null)
+	app.get('/login',function(req,res){
+		if(req.session.user != null)
 		{
-			res.redirect('/home');
+			res.redirect('/');
 			res.end();
 			return;
 		}
 		res.render('userLogin');
 	});
-	app.post('/userLogin',function(req,res){
+	app.post('/login',function(req,res){
 		var loginid = req.body.userid;
 		var passwd = req.body.userpwd;
 		User.findOne({user_id:loginid},function(err,user){
@@ -31,7 +31,7 @@ module.exports = function(app){
 				res.end();
 				return;
 			}
-			req.session.user = user._id;
+			req.session.user = user.user_id;
 			res.cookie('user',loginid,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
 			res.json({"issuccess":"ok","message":"ok"});
 			res.end();

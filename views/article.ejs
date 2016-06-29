@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoidMirage</title>
+<script src="/javascripts/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/mainTheme.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+      <a class="navbar-brand" href="/">VoidMirage</a>
+   </div>
+   <div>
+   <ul class="nav navbar-nav">
+   	<li><a href="/post">新文章</a></li>
+      <%if(userinfo){%>
+      <li><a href="/logout">登出</a></li>
+      <%}else{%>
+<li><a href="/login">登录</a></li>
+      <%}%>
+      
+      <li><a href="/aboutMe">关于我</a></li>
+   </ul>
+
+   </div>
+</nav>
+<div id="main">
+	<div id="content">
+		<div id="art-header"><span id="art-title"><%=art.title%></span>
+<div id=art-info>
+<span>•<%=`${art.create_date.year}年${art.create_date.mounth}月${art.create_date.day}日`%></span>
+<span>•作者:<%=art.author%></span>
+<span>•<%=`${art.visit}次浏览`%></span>
+	<span id="btnLogin" style="margin-left: 90%">收 藏</span>
+</div>
+		</div>
+	<hr id="line-block"/>
+	<div id="art-content-panel">
+		<div id="art-content">
+			<p><%=art.content%></p>
+		</div>
+	</div>
+	</div>
+	<div id="sidebar"></div>
+</div>
+</body>
+</html>
