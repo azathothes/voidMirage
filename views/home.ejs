@@ -51,7 +51,7 @@
    <%if(listArts){%>
    <%for(items of listArts){%>
    <div class="cell">
-      <a><img src="<%=items.author_icon%>"></a>
+      <a><img class="user_icon" src="<%=items.author_icon%>"></a>
       <span class="cominfo"><span class="com"><%=items.visit%></span><span>/</span><span class="total"><%=items.comment_times%></span></span>
       <a title="测试标题01" href="/article/<%=items._id%>"><%=items.title%></a>
       <span class="time"><%=items.last_reply.reply_time%></span>

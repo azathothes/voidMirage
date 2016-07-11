@@ -30,7 +30,7 @@
 </nav>
 <div id="main">
 	<div id="content">
-		<div id="art-header"><span id="art-title"><%=art.title%></span>
+		<div id="panel-con"><div id="art-header"><span id="art-title"><%=art.title%></span>
 <div id=art-info>
 <span>•<%=`${art.create_date.year}年${art.create_date.mounth}月${art.create_date.day}日`%></span>
 <span>•作者:<%=art.author%></span>
@@ -43,9 +43,36 @@
 		<div id="art-content">
 			<p><%=art.content%></p>
 		</div>
+	</div></div>
+	<div id="comments">
+		<div id="com-header">
+			<span>10回复</span>
+		</div>
+		<div class="comment">
+			<div>
+			<a href="asd.com">
+				<img class="user_icon" src="/usericons/defaulticon.jpg">
+			</a>
+			<a href=""><span class="name_rep">test</span></a>
+			<span>1楼·2年前</span>
+			</div>
+			<div class="rep-content">
+				<p>etst test testt test  test test test哈哈啊哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+			</div>
+			<hr>
+		</div>
+
 	</div>
+	<div id="reply">
+		<div id="reply-header">
+			<span id="reply-title">回复</span>
+		</div>
+		
+	</div>
+
 	</div>
 	<div id="sidebar"></div>
+	
 </div>
 </body>
 </html>
