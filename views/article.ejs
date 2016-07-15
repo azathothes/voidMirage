@@ -8,6 +8,9 @@
 <script src="/javascripts/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/mainTheme.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
+<script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
+<script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -41,12 +44,25 @@
 	<hr id="line-block"/>
 	<div id="art-content-panel">
 		<div id="art-content">
-			<p><%=art.content%></p>
+			<pre><%=art.content%></pre>
 		</div>
 	</div></div>
 	<div id="comments">
 		<div id="com-header">
 			<span>10回复</span>
+		</div>
+		<div class="comment">
+			<div>
+			<a href="asd.com">
+				<img class="user_icon" src="/usericons/defaulticon.jpg">
+			</a>
+			<a href=""><span class="name_rep">test</span></a>
+			<span>1楼·2年前</span>
+			</div>
+			<div class="rep-content">
+				<p>etst test testt test  test test test哈哈啊哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+			</div>
+			<hr>
 		</div>
 		<div class="comment">
 			<div>
@@ -67,12 +83,56 @@
 		<div id="reply-header">
 			<span id="reply-title">回复</span>
 		</div>
+		<textarea></textarea>
+		<div><button class="btn btn-success" id="submit">提 交</button></div>
 		
 	</div>
 
 	</div>
-	<div id="sidebar"></div>
+	<div id="sidebar">
+		<div id="userinfo">
+      <div id="header">
+          <span>用户信息</span>
+      </div>
+      <div id="uinfo">
+      <a><img id="u_avator" src="<%=art.author_icon%>"></a>
+      <span><a id="uname" href="/user/<%=art.author_id%>"><%=art.author%></a></span>
+      <div id="signature"><%=art.author_motor%></div>
+      </div>
+      </div>
+	</div>
 	
 </div>
+<script type="text/javascript">
+	window.onload = ()=>{
+		var editor = new Editor();
+		editor.render();
+		document.getElementsByClassName('CodeMirror')[0].style.height = "150px";
+		$(".icon-image").click(()=>{
+			$("#upload").css({"display":"block","z-index":"999"});
+			$("#wall").css({"display":"block"});
+		});
+
+		$("#submit").click(()=>{
+			//validate
+			var a = editor.codemirror.getValue();
+			if(!a || a.length == 0)
+			{
+				alert("no contents");
+				return;
+			}
+			$.post('/post',{content:a,reply_id:},(data)=>{
+				if(data.issuccess)
+				{
+					window.location = '/home';
+				}
+				else
+				{
+					alert(data.mesg);
+				}
+			});
+		});
+	}
+</script>
 </body>
 </html>

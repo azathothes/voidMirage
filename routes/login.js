@@ -31,7 +31,7 @@ module.exports = function(app){
 				res.end();
 				return;
 			}
-			req.session.user = user.user_id;
+			req.session.user = {user_id:user.user_id,user_icon:user.user_icon,user_guid:user._id};//user.user_id;
 			res.cookie('user',loginid,{path:'/',expires: new Date(Date.now() + 900000), httpOnly: true});
 			res.json({"issuccess":"ok","message":"ok"});
 			res.end();

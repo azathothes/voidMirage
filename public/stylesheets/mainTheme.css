@@ -133,6 +133,9 @@ body{
 	z-index: 1099;
 	background-color: white;
 }
+.CodeMirror {
+    height: 250px;
+}
 #wall{
 	position: fixed;
 	left: 0;

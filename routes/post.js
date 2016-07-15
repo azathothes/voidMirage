@@ -31,7 +31,8 @@ module.exports = (app)=>{
 									content:req.body.content,
 									author:req.session.user,
 									author_id:req.body.uid,
-									author_icon:user.user_icon
+									author_icon:user.user_icon,
+									author_motor:user.signature
 								});
 				art.save().then(res=>{
 					res.json({issuccess:"true",mesg:"ok"});
