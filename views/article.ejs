@@ -121,7 +121,7 @@
 				alert("no contents");
 				return;
 			}
-			$.post('/post',{content:a,reply_id:},(data)=>{
+			$.post('/post',{content:a},(data)=>{
 				if(data.issuccess)
 				{
 					window.location = '/home';
