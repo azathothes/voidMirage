@@ -1,78 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VoidMirage</title>
-<script src="/javascripts/jquery-1.11.1.min.js"></script>
-<script src="/javascripts/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/mainTheme.css">
+   <title>myBlog</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="/stylesheets/mainTheme.css">
 </head>
 <body>
-<nav class="navbar navbar-default">
-	<div class="navbar-header">
-      <a class="navbar-brand" href="/index">VoidMirage</a>
-   </div>
-   <div>
-   <ul class="nav navbar-nav">
-   	<li><a href="/post">新文章</a></li>
-      <%if(userinfo){%>
-      <li><a href="/logout">登出</a></li>
-      <%}else{%>
-<li><a href="/login">登录</a></li>
-      <%}%>
-      
-      <li><a href="/aboutMe">关于我</a></li>
-   </ul>
-
-   </div>
-</nav>
-   <div id="main">
-   <div id=sidebar>
-      <div id="userinfo">
-      <div id="header">
-          <span>用户信息</span>
-      </div>
-      <div id="uinfo">
-      <%if(userinfo){%>
-      <a><img id="u_avator" src="<%=userinfo.user_icon%>"></a>
-      <span><a id="uname" href="/user/<%=userinfo.user_id%>"><%=userinfo.user_id%></a></span>
-      <div id="signature"><%=userinfo.signature%></div>
-      <%}else{%>
-      <a href="/login"><span id="btnLogin">登录</span></a>
-      <%}%>
-      </div>
-      </div>
-   </div>
-   <div id="content">
-   <div class="panel">
-   <div id="list">
-   <%if(listArts){%>
-   <%for(items of listArts){%>
-   <div class="cell">
-      <a><img class="user_icon" src="<%=items.author_icon%>"></a>
-      <span class="cominfo"><span class="com"><%=items.visit%></span><span>/</span><span class="total"><%=items.comment_times%></span></span>
-      <a title="测试标题01" href="/article/<%=items._id%>"><%=items.title%></a>
-      <span class="time"><%=items.last_reply.reply_time%></span>
-      <hr class="line" />
-   </div>
-   <%}%>
-   <%}%>
-   </div>
-   <div id="pageinfo">
-      <ul id="pagelist">
-      <li><a class="pagenum" href="/page/1"><<</a></li>
-         <li><a class="pagenum" href="/page/1">1</a></li>
-         <li><a class="pagenum" href="/page/1">2</a></li>
-         <li><a class="pagenum" href="/page/1">3</a></li>
-         <li><a class="pagenum" href="/page/1">...</a></li>
-         <li><a class="pagenum" href="/page/1">>></a></li>
+   <section class="nav">
+   <a href="#"><h2 class="site-name">FunCulb</h2></a>
+      <ul class="nav-bar">
+         <li><a class="nav-link" href="#">新随笔</a></li>
+         <li><a class="nav-link" href="#">注册</a></li>
+         <li><a class="nav-link" href="#">关于</a></li>
       </ul>
-   </div>
-   </div>
-   </div>
-   </div>
-   <div id="footer"></div>
+   </section>
+
+   <section class="container">
+      <section class="list-articles">
+         <header class="list-header">
+             <ul class="nav-article">
+                 <li><span>技术</span></li>
+                 <li><span>生活</span></li>
+                 <li><span>其他</span></li>
+             </ul>
+         </header>
+         <section class="list"></section>
+      </section>
+      <aside class="list-info"></aside>
+   </section>
 </body>
 </html>

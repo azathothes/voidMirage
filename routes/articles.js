@@ -24,16 +24,16 @@ module.exports = (app)=>{
 		});
 		
 	});
-	app.post('/article/:id',checkSession(`/article/${req.params.id}`));
+	//app.post('/article/:id',checkSession(`/article/${req.params.id}`));
 	app.post('/article/:id',(req,res)=>{
 		//construct comment instance
 		var reply = {"content":req.body.content,"create_date":new Date().toLocaleDateString(),"reply_id":req.session.user_id,"user_icon":req.session.user_icon};
 		//get topit id
-		articleModel.update({__id:req.params.id},{"$push",{"comments":reply}}).exec().then((art)=>{
+		//articleModel.update({__id:req.params.id},{"$push",{"comments":reply}}).exec().then((art)=>{
 			
-		}).catch((err)=>{
+		//}).catch((err)=>{
 			
-		})
+		//})
 		//insert
 		//redirect
 	});

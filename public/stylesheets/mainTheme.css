@@ -1,252 +1,68 @@
-.navbar-nav{
-	margin-right: 30px;
-	float: right;
-}
-#main{
-	width: 90%;
-	margin:15px auto;
-	min-height: 400px;
-}
-#sidebar{
-	width: 290px;
-	float: right;
-	margin-bottom: 20px;
-	min-height: 400px;
-}
-#content{
-	width: 1044px;
-	float: left;
-	
-}
-.panel{
-	margin-bottom: 10px
-}
-.cell{
-	margin: 10px;
-	font-size: 14px;
-}
-.user_icon{
-	width: 30px;
-	height: 30px;
-}
-.cominfo{
-	width: 70px;
-	display: inline-block;
-	text-align: center;
-}
-.com{
-	color: #9e78c0;
-}
-.total{
-	color: #b4b4b4;
-}
-.time{
-	color:#778087;
-	display: inline-block;
-	float: right;
-	margin-top: 5px;
-}
-.line{
-	margin-bottom: 0px;
-	margin-top: 5px;
-}
 body{
-	background-color: #e1e1e1;
+	margin:0px;
+	font-family: 微软雅黑;
 }
-#userinfo{
-	margin-bottom: 13px;
-}
-#header{
-	padding: 10px;
-	color: #51585c;
-	background-color: #f6f6f6;
-	border-radius: 3px 3px 0 0;
-}
-#uinfo{
-	padding: 10px;
-	background-color: white;
-	border-radius: 0 0 3px 3px;
-}
-#u_avator{
-	width: 48px;
-	height: 48px;
-	border-radius: 4px 4px 4px 4px;
-}
-#uname{
-	display: inline-block;
-	margin-left: 10px;
-	font-size: 18px;
-}
-#signature{
-	margin-top: 10px;
-	font-size: 18px;
-	color: #778087;
-}
-#pagelist{
-	display: inline-block;
-	padding: 0px;
-	margin-left: 10px;
-	margin-top: 10px;
-	list-style: none;
-}
-#pagelist li{
-	margin-left: 0px;
-	display: inline;
-}
-.pagenum{
-	line-height: 20px;
-	padding: 4px 12px;
-	border: 1px solid #ddd;
-}
-#btnLogin{
-	background-color: green;
-	color: white;
-	display: inline-block;
-	font-size: 14px;
-	padding: 5px 15px 5px 15px;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.header{
-	padding: 5px;
-	background-color: #F6F6F6;
-}
-#poster_header{
-	font-size: 18px;
-	font-family: "Arial";
-	color: green;
-}
-#submit{
-	float: right;
-	margin-right: 10px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-#upload{
-	display: none;
-	width: 400px;
-	height: 300px;
-	position: absolute;
-	top:30%;
-	left: 35%;
-	border-radius: 7px;
-	z-index: 1099;
-	background-color: white;
-}
-.CodeMirror {
-    height: 250px;
-}
-#wall{
+.nav{
+	overflow: hidden;
 	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background-color: black;
-	display: none;
-	opacity: 0.3;
-}
-#close{
-	display: inline-block;
-	margin: 8px;
-	float: right;
-	padding: 5px 10px 5px 10px;
-	background-color: green;
-	opacity: 0.5;
-	color: white;
-	cursor: pointer;
-	border-radius: 3px;
-}
-#uploadTil
-{
-	display: inline-block;
-	margin:8px;
-	font-size: 19px;
-
-}
-#updTitle{
-	border-bottom: 1px solid #EEEEEE;
-}
-#infos ol li{
-	list-style: none;
-	margin: 8px 0px;
-}
-#infos ol{
-	padding: 5px;
-}
-#tips{
-	display:inline-block;
-	padding:15px;
-	margin:auto 78px;
-}
-#hidden{
-	display: none;
-}
-#art-title{
-	display: inline-block;
-	font-size: 22px;
-	font-weight: 700;
-	margin: 8px 0px;
-	margin-bottom: 0px;
-	width: 70%;
-}
-#art-header{
-	padding: 10px;
-}
-#art-info{
-	margin-top: 3px;
-}
-#art-info span{
-	margin-left: 5px;
-}
-#line-block{
-	margin-top: 0px;
-}
-#art-content-panel{
-	padding: 10px;
-}
-#comments{
-	margin-top: 20px;
-}
-#panel-con{
+	top: 0px;
+	left: 0px;
+	right: 0px;
 	background-color: white;
+	box-shadow: 0px 0px 5px 0px black;
+	z-index: 99999;
 }
-#com-header{
-	height: 40px;
-	background-color: #F6F6F6;
-}
-#com-header span{
-	font-size: 18px;
-	display: inline-block;
-    margin-top: 8px;
-    margin-left: 7px;
-
-}
-.comment{
-	background-color: white;
-	padding: 10px;
-}
-.name_rep{
-	padding-left: 10px;
-}
-.rep-content{
-	padding-left: 45px;
-}
-.rep-content p{
-	font-size: 15px;
-    line-height: 1.7em;
-    overflow: auto;
-}
-#reply{
-	margin-top: 20px;
-	background-color: white;
-}
-#reply-header{
-	background-color: #F6F6F6;
-	height: 40px;
-}
-#reply-title{
-	display: inline-block;
+.site-name{
 	margin: 10px;
-	font-size: 15px;
+	font-size: 20px;
+	float: left;
+}
+.nav-bar{
+	list-style: none;
+	float: right;
+	padding: 0px;
+	height: 20px;
+	margin: 15px 0px;
+	margin-right: 20px;
+
+}
+.nav-bar li{
+	float: left;
+	display: inline-block;
+	margin: 0px 10px;
+}
+.nav-link{
+	text-decoration: none;
+	color: black;
+}
+.container{
+	width: 90%;
+	height: 4000px;
+	background-color: #E6E6E6;
+	margin: 70px auto;
+	border-radius: 5px;
+}
+.list-articles{
+ width: 70%;
+ float: left;
+ z-index: 88888;
+}
+.nav-article{
+	overflow: hidden;
+	margin: 12px 0px 12px 0px;
+	padding: 0px;
+
+}
+.nav-article li{
+	float: left;
+	display: inline-block;
+}
+.list-header{
+	background-color: #F6F6F6;
+	margin-top: 5px;
+	margin-left: 5px;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    height: 35px;
+    overflow: hidden;
 }
