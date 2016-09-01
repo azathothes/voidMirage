@@ -1,104 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>blog</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet"></head>
-	<style type="text/css">
-	.input-group{
-		margin-top: 10px;
-	}
-	#btnLog{
-		margin-top: 10px;
-		float: right;
-	}
-	.jumbotron{
-		margin-top: 100px;
-		padding-bottom: 70px;
-	}
-	#log-info{
-		margin-top: 10px;
-		font-size: 20px;
-		color:red;
-		float: left;
-		font-family: "microsoft YAHEI"
-	}
-	</style>
+   <title>myBlog</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="/stylesheets/mainTheme.css">
+</head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">VoidMirage</a>
-		</div>
-		<div>
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="/home">首页</a>
-				</li>
-				<li>
-					<a href="/signUp">登录</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-<div class="container">
-	<div class="row col-md-12" >
-
-		<div class="row col-md-6 col-md-offset-3">
-		<div class="jumbotron"><div class="input-group">
-         <span class="input-group-addon">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</span>
-         <input type="text" id="userID" class="form-control" placeholder="userid">
-      </div>
-      <div class="input-group">
-         <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
-         <input type="password" id="userPwd1" class="form-control" placeholder="password">
-      </div>
-      <div class="input-group">
-         <span class="input-group-addon">确认密码:</span>
-         <input type="password" id="userPwd2" class="form-control" placeholder="password">
-      </div>
-      <span id="log-info"></span>
-      <button type="button" id="btnLog" class="btn btn-info">注册</button>
-		</div></div>
-			
-	</div>
-</div>
-<script src="/javascripts/jquery-1.11.1.min.js"></script>
-<script src="/javascripts/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-    $('#btnLog').click(function(){
-    	if($('#userID').val().length < 6)
-    	{
-    		$('#log-info').text('用户名长度太短');
-    		return;
-    	};
-    	if($('#userPwd1').val().length < 6)
-    	{
-    		$('#log-info').text('密码长度错误');
-    		return;
-    	};
-    	if($('#userPwd2').val() != $('#userPwd1').val())
-    	{
-    		$('#log-info').text('输入密码不一致');
-    		return;
-    	}
-    	$.post('/signup',{userid:$('#userID').val(),userpwd1:$('#userPwd1').val()},function(data){
-    		if(data.isregok == "ok")
-    		{
-    			window.location.assign("/home")
-    			return;
-    		}
-    		else
-    		{
-    			$('#log-info').text(data.message);
-    			return;
-    		}
-    	});
-    });
-  
-});
-</script>
+   <section class="nav">
+   <a href="#"><h2 class="site-name">FunCulb</h2></a>
+      <ul class="nav-bar">
+         <li><a class="nav-link" href="#">新随笔</a></li>
+         <li><a class="nav-link" href="#">注册</a></li>
+         <li><a class="nav-link" href="#">关于</a></li>
+      </ul>
+   </section>
+   <section class="">
+      <article>
+         
+      </article>
+   </section>
 </body>
-
 </html>
