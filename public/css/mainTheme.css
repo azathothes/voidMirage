@@ -70,7 +70,7 @@ body{
 	display: inline-block;
 	margin-left: 10px;
 	margin-top: 5px;
-	
+
 }
 
 .activate{
@@ -263,11 +263,29 @@ select{
 }
 #title{
     width: 98%;
-    border: none;
     resize: none;
     height: 20px;
     padding: 5px;
     border: 1px solid #bcbcbc;
     font-size: 17px;
     border-radius: 5px;
+}
+#content{
+  width: 98%;
+  resize: none;
+  height: 420px;
+  padding: 5px;
+  border: 1px solid #bcbcbc;
+  font-size: 17px;
+  border-radius: 5px;
+}
+#submit{
+  width: 100px;
+height: 30px;
+font-size: 15px;
+border: 1px solid;
+cursor: pointer;
+border-radius: 6px;
+background: #80bd01;
+color: white;
 }

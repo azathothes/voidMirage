@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>myBlog</title>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="/stylesheets/mainTheme.css">
+	<title>admin--><--myblog</title>
+	<meta charset="utf8">
+	<link rel="stylesheet" href="/css/mainTheme.css">
 </head>
 <body>
-   <section class="nav">
-   <a href="#"><h2 class="site-name">FunCulb</h2></a>
-      <ul class="nav-bar">
-         <li><a class="nav-link" href="#">关于</a></li>
-      </ul>
-   </section>
-
-   <section class="container">
+	<section class="nav">
+        <a href="#"><h2 class="site-name">FunCulb</h2></a>
+        <ul class="nav-bar">
+            <li><a class="nav-link" href="#">关于</a></li>
+        </ul>
+    </section>
+	<section class="container">
       <section class="list-articles">
          <header class="list-header">
-             <a class="activate" href="#">技术</a>
-             <a href="#">生活</a>
-             <a href="#">其他</a>
+             <span id="admin-title">/ 添加文章</span>
          </header>
-         <section class="list">
-            <article class="articles">
-                <a><img class="usr-avator" src="/1.jpg" alt=""></a>
-                <span class="vis-info">
-                    <span class="art-rep">1</span>
-                    <span class="vis-info-div">/</span>
-                    <span class="art-vis">200</span>
-                </span>
-                <span class="tag-name">技术</span>
-                <a class="art-title" href="#"><span>测试标题测试标题测试标题测试标题测试标题</span></a>
-                <span class="rep-time">2016/9/1 11:23</span>
-                <a class="art-rep-avt" href="#">
-                   <img src="/" alt="">
-                </a>
+         <section class="list addart">
 
-            </article>
-            <section class="list-footer">
-                <ul class="nav-art-pages">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-            </section>
+            <form action="/post" method="post">
+            	<span>选择板块:</span>
+            	<select name="tagname" id="tagname">
+            		<option>请选择</option>
+            		<option value="tech">技术</option>
+            		<option value="life">生活</option>
+            		<option value="other">其他</option>
+            	</select>
+              <span>归档:</span>
+              <input type="text" name="class" value="">
+            	<br>
+            	<textarea name="title" id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
+            	<br>
+              <textarea name="content" id="content" placeholder="支持markdown语法" rows="8" cols="40"></textarea>
+              <br>
+              <button type="submit" id="submit" name="button">提交</button>
+            </form>
          </section>
       </section>
       <aside class="list-info">
