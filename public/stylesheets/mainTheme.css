@@ -244,3 +244,30 @@ body{
 	padding-left: 10px;
     padding-top: 5px;
 }
+#admin-title{
+	display: inline-block;
+    margin: 7px;
+    color: #0f9494;
+}
+.addart{
+	padding: 10px;
+}
+select{
+	height: 25px;
+    width: 150px;
+    border: 1px solid #bcbcbc;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+#title{
+    width: 98%;
+    border: none;
+    resize: none;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid #bcbcbc;
+    font-size: 17px;
+    border-radius: 5px;
+}

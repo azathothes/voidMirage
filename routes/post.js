@@ -2,23 +2,26 @@ var common = require('../common/common.js');
 var userModel = require('../models/User.js');
 var articleModel = require('../models/Article.js');
 module.exports = (app)=>{
-	app.get('/post',common.checkSession('post'));
-	app.get('/post',(req,res)=>{
-		var user_id = req.cookies.user;
+	//app.get('/post',common.checkSession('post'));
+	app.get('/admin',(req,res)=>{
+		//var user_id = req.cookies.user;
 		//get user info
-		userModel.findOne({user_id:user_id}).exec().then(user=>{
+		/*userModel.findOne({user_id:user_id}).exec().then(user=>{
 			if(!user)
 			{
 
 			}
 			else
 			{
-				res.render('post',{userinfo:user});
+				res.render('admin');
 			}
-		}).catch(e=>{console.log(e);});
-		
+		}).catch(e=>{console.log(e);});*/
+		res.render('admin')
 	});
-	app.post('/post',(req,res)=>{
+
+
+
+	app.post('/admin',(req,res)=>{
 		userModel.findOne({user_id:req.session.user}).exec().then(user=>{
 			if(!user)
 			{
