@@ -263,14 +263,16 @@ select{
 }
 #title{
     width: 98%;
+		font-family: inherit;
     resize: none;
     height: 20px;
     padding: 5px;
     border: 1px solid #bcbcbc;
-    font-size: 17px;
+    font-size: 15px;
     border-radius: 5px;
 }
 #content{
+	font-family: inherit;
   width: 98%;
   resize: none;
   height: 420px;

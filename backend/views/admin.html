@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin--><--myblog</title>
+	<meta charset="utf8">
+	<link rel="stylesheet" href="/css/mainTheme.css">
+</head>
+<body>
+	<section class="nav">
+        <a href="#"><h2 class="site-name">FunCulb</h2></a>
+        <ul class="nav-bar">
+            <li><a class="nav-link" href="#">关于</a></li>
+        </ul>
+    </section>
+	<section class="container">
+      <section class="list-articles">
+         <header class="list-header">
+             <span id="admin-title">/ 添加文章</span>
+         </header>
+         <section class="list addart">
+
+            <form action="/post" method="post">
+            	<span>选择板块:</span>
+            	<select name="tagname" id="tagname">
+            		<option>请选择</option>
+            		<option value="tech">技术</option>
+            		<option value="life">生活</option>
+            		<option value="other">其他</option>
+            	</select>
+              <span>归档:</span>
+              <input type="text"  name="class" value="">
+            	<br>
+            	<textarea name="title" id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
+            	<br>
+              <textarea name="content" id="content" placeholder="支持markdown语法" rows="8" cols="40"></textarea>
+              <br>
+              <button type="submit" id="submit" name="button">提交</button>
+            </form>
+         </section>
+      </section>
+      <aside class="list-info">
+          <section class="user-info">
+              <header class="aside-header">
+                  <span class="aside-header-title">用户信息</span>
+              </header>
+              <section class="aside-body">
+                  <a class="user-link" href="/"><img class="avator-user" src="/" alt=""></a>
+                  <span class="user-name">azathothes</span>
+                  <span class="user-motor">“这家伙很懒什么都没留下”</span>
+              </section>
+          </section>
+
+          <section class="user-info">
+              <header class="aside-header">
+                  <span class="aside-header-title">提示</span>
+              </header>
+              <section class="aside-body tips">
+                  <span class="user-motor">don't trying to make some big news</span>
+              </section>
+          </section>
+
+          <section class="user-info">
+              <header class="aside-header">
+                  <span class="aside-header-title">归档</span>
+              </header>
+              <section class="aside-body">
+                  <ul class="classify">
+                  <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
+                  <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
+                  <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
+                  </ul>
+              </section>
+          </section>
+      </aside>
+   </section>
+</body>
+</html>
