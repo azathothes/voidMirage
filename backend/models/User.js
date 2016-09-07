@@ -5,7 +5,8 @@ var User = mongoose.Schema({
     usr_nick_name:{type:String,default:''},
     usr_passwd:String,
     usr_create_date:{type:Date,default:new Date()},
-    usr_avator:{type:String,default:''}
+    usr_avator:{type:String,default:''},
+    usr_email:String
 })
 
 var user = mongoose.model('User',User,'user');

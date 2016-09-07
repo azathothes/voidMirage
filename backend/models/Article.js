@@ -8,7 +8,8 @@ var Article = mongoose.Schema({
     art_last_reply:{type:Date,default:new Date()},
     art_classify:[String],
     art_content:String,
-    art_reply:[]
+    art_reply:[],
+    art_isdel:{type:Number,default:0}
 })
 
 var article = mongoose.model('Article',Article,'articles');
