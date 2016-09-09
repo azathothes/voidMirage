@@ -6,7 +6,6 @@ const serve = require('koa-static');
 const router = require('./routes/index_routes.js');
 const bodyparser = require('koa-body');
 const session = require('koa-session');
-session.maxAge = 3 * 60;
 app.keys = ['wanlf\'s little srcret'];
 app.use(bodyparser());
 app.use(serve(__dirname+'/dist'));
@@ -15,6 +14,6 @@ app.use(views(__dirname + '/views',{
     html:'ejs'
   }
 }))
-app.use(session(app));
+app.use(session({maxage:3*60*1000,key:'test-session-key'},app));
 app.use(router.routes());
 app.listen(3000);

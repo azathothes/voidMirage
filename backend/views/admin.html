@@ -19,22 +19,22 @@
          </header>
          <section class="list addart">
 
-            <form action="/post" method="post">
+            <form action="/post_article" method="post">
             	<span>选择板块:</span>
             	<select name="tagname" id="tagname">
             		<option>请选择</option>
-            		<option value="tech">技术</option>
-            		<option value="life">生活</option>
-            		<option value="other">其他</option>
+            		<option value="技术">技术</option>
+            		<option value="生活">生活</option>
+            		<option value="其他">其他</option>
             	</select>
               <span>归档:</span>
-              <input type="text"  name="class" value="">
+              <input type="text"  name="classname" value="">
             	<br>
             	<textarea name="title" id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
             	<br>
               <textarea name="content" id="content" placeholder="支持markdown语法" rows="8" cols="40"></textarea>
               <br>
-              <button type="submit" id="submit" name="button">提交</button>
+              <button type="submit" id="submit">提交</button>
             </form>
          </section>
       </section>

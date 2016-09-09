@@ -9,33 +9,38 @@
    <section class="nav">
    <a href="#"><h2 class="site-name">FunCulb</h2></a>
       <ul class="nav-bar">
-         <li><a class="nav-link" href="#">关于</a></li>
+         <li><a class="nav-link" href="/about">关于</a></li>
       </ul>
    </section>
 
    <section class="container">
       <section class="list-articles">
          <header class="list-header">
-             <a class="activate" href="#">技术</a>
-             <a href="#">生活</a>
-             <a href="#">其他</a>
+             <a class="activate" href="/?tag=tech">技术</a>
+             <a href="/?tag=life">生活</a>
+             <a href="/?tag=other">其他</a>
          </header>
          <section class="list">
+         <%if(list){%>
+         <%for(var item of list){%>
             <article class="articles">
-                <a><img class="usr-avator" src="/1.jpg" alt=""></a>
+                <a><img class="usr-avator" src="/<%=item.art_author.author_avator%>" alt=""></a>
                 <span class="vis-info">
-                    <span class="art-rep">1</span>
+                    <span class="art-rep"><%=item.art_reply.length%></span>
                     <span class="vis-info-div">/</span>
-                    <span class="art-vis">200</span>
+                    <span class="art-vis"><%=item.art_visit_count%></span>
                 </span>
-                <span class="tag-name">技术</span>
-                <a class="art-title" href="#"><span>测试标题测试标题测试标题测试标题测试标题</span></a>
-                <span class="rep-time">2016/9/1 11:23</span>
+                <span class="tag-name"><%=item.art_tag_info%></span>
+                <a class="art-title" href="/topic/<%=item._id%>"><span><%=item.art_title%></span></a>
+                <span class="rep-time"><%=`${item.art_last_reply.toLocaleDateString()} ${item.art_last_reply.getHours()}:${item.art_last_reply.getMinutes()}`%></span>
                 <a class="art-rep-avt" href="#">
                    <img src="/" alt="">
                 </a>
-
             </article>
+            <%}%>
+          <%}%>
+
+
             <section class="list-footer">
                 <ul class="nav-art-pages">
                   <li><a href="#">«</a></li>

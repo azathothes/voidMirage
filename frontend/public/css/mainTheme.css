@@ -37,16 +37,17 @@ body{
 	color: black;
 }
 .container{
-	width: 90%;
+	width: 1215px;
 	background-color: #E6E6E6;
 	margin: 70px auto;
 	border-radius: 5px;
 	overflow: hidden;
 }
 .list-articles{
- width: 70%;
  float: left;
- z-index: 88888;
+    z-index: 88888;
+    width: 840px;
+    margin: 10px;
 }
 .nav-article{
 	overflow: hidden;
@@ -60,8 +61,6 @@ body{
 }
 .list-header{
 	background-color: #F6F6F6;
-	margin-top: 5px;
-	margin-left: 5px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     height: 35px;
@@ -91,8 +90,6 @@ body{
 }
 .list{
 	background-color: white;
-	margin-left: 5px;
-	margin-bottom: 5px;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
@@ -166,12 +163,13 @@ body{
 	color: #778087;
 }
 .list-info{
-	width: 29%;
+	        width: 345px;
     float: right;
     z-index: 88888;
-    margin-top: 5px;
-    margin-right: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
     margin-bottom: 5px;
+    max-width: 355px;
 }
 .tag-name{
     display: inline-block;
@@ -322,5 +320,62 @@ color: white;
     color: #fff;
     margin-top: 14px;
 }
-
-
+.art-content{
+    margin: 10px;
+    background: white;
+    border-radius: 5px;
+}
+.good{
+	background-color: #80bd01;
+	margin-top: 16px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.content-title{
+	display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.art-info{
+	    margin-top: 0px;
+    color: gray;
+    padding-left: 14px;
+}
+.art-info li{
+	display: inline-block;
+	margin-right: 10px;
+	font-size: 1px;
+}
+.content-real{
+	width: 100%;
+    padding-left: 20px;
+    border-top: 1px solid grey;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+code{
+	padding: 2px 4px;
+    color: #d14;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+}
+.reply{
+	height: 100px;
+    background: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.reply header{
+	background-color: #F6F6F6;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    height: 30px;
+    overflow: hidden;
+}    
+.reply header span{
+	display: block;
+    margin: 5px;
+}
