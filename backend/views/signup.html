@@ -15,6 +15,7 @@
 
       <article id="signup">
           <form action="/signin" method="post">
+              <input style="display: none" type="text" name="return" value="<%=returnurl.return || ""%>">
               <img src="/imgs/me.svg" alt="user_id">
               <input type="text" name="userid" class="input-box">
 

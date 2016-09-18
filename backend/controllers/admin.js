@@ -3,7 +3,7 @@ const articles = require('../models/Article');
 module.exports.admin = function*(){
 	if(!this.session.user)
 	{
-		this.redirect('/signin?return=admin_post');
+		this.redirect('/signin?return=admin');
 		return;
 	}
    yield this.render('admin.html')
@@ -12,7 +12,7 @@ exports.post_article = function*(){
 
 	if(!this.session.user)
 	{
-		this.redirect('/signin?return=admin_post');
+		this.redirect('/signin?return=admin');
 		return;
 	}
 	let content = this.request.body;

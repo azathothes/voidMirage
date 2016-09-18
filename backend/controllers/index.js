@@ -1,6 +1,7 @@
 "use strict"
 const user = require('../models/User.js');
 const articles = require('../models/Article.js')
+const querystring = require('querystring');
 module.exports.index = function*(){
 	let current_user = this.request.user;
 	let me = null;
@@ -19,18 +20,21 @@ module.exports.index = function*(){
 }
 
 module.exports.signin_page = function*(){
+  let returnurl = querystring.parse(this.request.querystring);
   if(this.session.user)
   {
-      this.redirect('/');
+      this.redirect('/'+returnurl.return || "");
       return;
   }
-    yield this.render('signup');
+    yield this.render('signup',{returnurl:returnurl});
 }
 
 module.exports.signin_data = function*(){
   
 	//query user
   let userinfo = this.request.body;
+  //query return
+  console.log(userinfo);
   if(!userinfo.userid || !userinfo.passwd)
   {
       this.body = JSON.stringify({isok:false,msg:'uncomplete user info.'});
@@ -44,5 +48,10 @@ module.exports.signin_data = function*(){
   }
   this.session.user = loguser;
 	//insert
+  if(userinfo.return)
+  {
+      this.redirect(`/${userinfo.return}`);
+      return;
+  }
   this.redirect('/');
 }
