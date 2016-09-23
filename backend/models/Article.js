@@ -13,7 +13,8 @@ var Article = mongoose.Schema({
     art_content:String,
     art_reply:[],
     art_isdel:{type:Number,default:0},
-    art_tag_info:String
+    art_tag_info:String,
+    art_is_top:{type:Number,default:0}
 })
 
 var article = mongoose.model('Article',Article,'articles');

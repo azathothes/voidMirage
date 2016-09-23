@@ -29,7 +29,7 @@ exports.post_article = function*(){
 			author_avator:this.session.user.usr_avator
 			},
 		art_classify:['test_class'],
-		art_content:content.content,
+		art_content:content.content.trim(),
 		art_tag_info:content.tagname,
 		art_last_reply:new Date()
 	})).save().catch(err=>{
