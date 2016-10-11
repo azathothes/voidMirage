@@ -25,6 +25,7 @@ exports.post_article = function*(){
 		art_title:content.title,
 		art_create_date:new Date(),
 		art_author:{
+			author_name:this.session.user.usr_nick_name,
 			author_id:this.session.user._id,
 			author_avator:this.session.user.usr_avator
 			},

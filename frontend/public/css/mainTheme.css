@@ -147,16 +147,23 @@ body{
     padding: 0px;
     margin: 0px;
     overflow: hidden;
-    height: 30px;
+    height: 40px;
     padding: 4px;
     -webkit-box-sizing: border-box;
+    text-align: center;
 }
 .nav-art-pages li{
 	display: inline-block;
     float: left;
-    width: 20px;
-    text-align: center;
-    height: 22px;
+    width: 30px;
+    height: 30px;
+    line-height: 2em;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+.nav-art-pages li:last-child{
+    border-right: 1px solid #dddddd;
 }
 .nav-art-pages li a{
 	text-decoration: none;
@@ -271,14 +278,14 @@ select{
     border-radius: 5px;
 }
 #content{
-	font-family: inherit;
+	/*font-family: inherit;
   width: 98%;
   resize: none;
   height: 420px;
   padding: 5px;
   border: 1px solid #bcbcbc;
   font-size: 17px;
-  border-radius: 5px;
+  border-radius: 5px;*/
 }
 #submit{
   width: 100px;
@@ -332,13 +339,14 @@ color: white;
 }
 .content-title{
 	display: inline-block;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 10px;
 }
 .art-info{
 	    margin-top: 0px;
     color: gray;
-    padding-left: 14px;
+    padding-left: 0px;
+    margin-bottom: 0px;
 }
 .art-info li{
 	display: inline-block;
@@ -353,11 +361,11 @@ color: white;
     box-sizing: border-box;
     padding-bottom: 10px; 
 }
-code{
-	padding: 2px 4px; 
+code{ 
     color: #333;
-    background-color: #f7f7f9;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     border: 0px;
+    background-color: #EEEEEE;
     border-radius: 4px;
 }
 .reply{
@@ -389,7 +397,13 @@ h1{
     margin-bottom: 20px;
 }
 pre{
-        padding: 10px;
+        /*padding: 10px;
     background: #F9F9F5;
-    display: inline-block
+    display: inline-block*/
+}
+.art-content header{
+    padding: 10px;
+}
+.list-footer{
+    height: 40px;
 }

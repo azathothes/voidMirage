@@ -19,7 +19,7 @@
          </header>
          <section class="list addart">
 
-            <form action="/post_article" method="post">
+            <form>
             	<span>选择板块:</span>
             	<select name="tagname" id="tagname">
             		<option>请选择</option>
@@ -32,9 +32,9 @@
             	<br>
             	<textarea name="title" id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
             	<br>
-              <textarea name="content" style="font-family: 微软雅黑" id="content" placeholder="支持markdown语法" rows="8" cols="40"></textarea>
+              <textarea id="content" ></textarea>
               <br>
-              <button type="submit" id="submit">提交</button>
+              <button type="button" id="submit">提交</button>
             </form>
          </section>
       </section>
@@ -73,5 +73,16 @@
           </section>
       </aside>
    </section>
+   <link rel="stylesheet" href="/css/simplemde.min.css">
+   <script src="/js/simplemde.min.js"></script>
+   <script type="text/javascript">
+     window.onload = ()=>{
+     var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+
+      document.getElementById("submit").onclick = ()=>{
+        
+      }
+     }
+   </script>
 </body>
 </html>

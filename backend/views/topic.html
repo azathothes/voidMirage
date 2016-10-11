@@ -16,17 +16,17 @@
       <section class="list-articles">
           <section class="art-content">
             <header>
-              <%if(article.art_is_top){%>
+              <%if(article.art_is_top !== 0){%>
               <span class="tag-name good">置顶</span>
               <%}%>
               <h2 class="content-title"><%=article.art_title%></h2>
               <br>
               <ul class="art-info">
-                <li>●发布于8个月前</li>
-                <li>●作者pfcoder</li>
-                <li>●2091 次浏览</li>
-                <li>●最后一次编辑是 几秒前</li>
-                <li>●来自 分享</li>
+                <li>●发布于<%=article.art_create_date%></li>
+                <li>●作者<%=article.art_author.author_name%></li>
+                <li>●<%=article.art_visit_count%> 次浏览</li>
+                <li>●最后一次编辑是 <%=article.art_last_reply%></li>
+                <li>●来自 <%=article.art_tag_info%></li>
               </ul>
 
           </header>
@@ -71,7 +71,8 @@
           </section>
       </aside>
    </section>
-   <script type="text/javascript" src="/js/markdown.min.js"></script>
+   
+   <!-- <script type="text/javascript" src="/js/markdown.min.js"></script> -->
    <!-- <script type="text/javascript" src="/js/content.min.js"></script> -->
 </body>
 </html>

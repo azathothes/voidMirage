@@ -5,7 +5,8 @@ var Article = mongoose.Schema({
     art_create_date:Date,
     art_author:{
     	author_id:mongoose.Schema.Types.ObjectId,
-    	author_avator:String
+    	author_avator:String,
+        author_name:String
     },
     art_visit_count:{type:Number,default:0},
     art_last_reply:{type:Date,default:new Date()},

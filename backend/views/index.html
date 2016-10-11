@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <title>myBlog</title>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="/css/mainTheme.css">
-</head>
-<body>
-   <section class="nav">
-   <a href="#"><h2 class="site-name">FunCulb</h2></a>
+  <head>
+    <title>myBlog</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/mainTheme.css">
+  </head>
+  <body>
+    <section class="nav">
+      <a href="#"><h2 class="site-name">FunCulb</h2></a>
       <ul class="nav-bar">
-         <li><a class="nav-link" href="/about">关于</a></li>
+        <li><a class="nav-link" href="/about">关于</a></li>
       </ul>
-   </section>
-
-   <section class="container">
+    </section>
+    <section class="container">
       <section class="list-articles">
-         <header class="list-header">
-             <a class="activate" href="/?tag=tech">技术</a>
-             <a href="/?tag=life">生活</a>
-             <a href="/?tag=other">其他</a>
-         </header>
-         <section class="list">
-         <%if(list){%>
-         <%for(var item of list){%>
-            <article class="articles">
-                <a><img class="usr-avator" src="/<%=item.art_author.author_avator%>" alt=""></a>
-                <span class="vis-info">
-                    <span class="art-rep"><%=item.art_reply.length%></span>
-                    <span class="vis-info-div">/</span>
-                    <span class="art-vis"><%=item.art_visit_count%></span>
-                </span>
-                <span class="tag-name"><%=item.art_tag_info%></span>
-                <a class="art-title" href="/topic/<%=item._id%>"><span><%=item.art_title%></span></a>
-                <span class="rep-time"><%=`${item.art_last_reply.toLocaleDateString()} ${item.art_last_reply.getHours()}:${item.art_last_reply.getMinutes()}`%></span>
-                <a class="art-rep-avt" href="#">
-                   <img src="/" alt="">
-                </a>
-            </article>
-            <%}%>
+        <header class="list-header">
+          <a <%=(pageinfo.tag === 'all' ? 'class=activate':"")%> href="/?tag=all">全部</a>
+          <a <%=(pageinfo.tag === 'tech' ? 'class=activate':"")%> href="/?tag=tech">技术</a>
+          <a <%=(pageinfo.tag === 'life' ? 'class=activate':"")%> href="/?tag=life">生活</a>
+          <a <%=(pageinfo.tag === 'other' ? 'class=activate':"")%> href="/?tag=other">其他</a>
+        </header>
+        <section class="list">
+          <%if(list){%>
+          <%for(var item of list){%>
+          <article class="articles">
+            <a><img class="usr-avator" src="/<%=(item.art_author.author_avator === '' ? "default":item.art_author.author_avator )%>" alt=""></a>
+            <span class="vis-info">
+              <span class="art-rep"><%=item.art_reply.length%></span>
+              <span class="vis-info-div">/</span>
+              <span class="art-vis"><%=item.art_visit_count%></span>
+            </span>
+            <span class="tag-name"><%=item.art_tag_info%></span>
+            <a class="art-title" href="/topic/<%=item._id%>"><span><%=item.art_title%></span></a>
+            <span class="rep-time"><%=`${item.art_last_reply.toLocaleDateString()} ${item.art_last_reply.getHours()}:${item.art_last_reply.getMinutes()}`%></span>
+            <a class="art-rep-avt" href="#">
+              <img src="/default" alt="">
+            </a>
+          </article>
           <%}%>
-
-
-            <section class="list-footer">
-                <ul class="nav-art-pages">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-            </section>
-         </section>
+          <%}%>
+          <section class="list-footer">
+            <ul class="nav-art-pages">
+              <li><a href="/?tab=<%=pageinfo.tag%>&page=1">«</a></li>
+              
+              <%if(pageinfo.totalPages <= 5){%>
+              <%for(var i = 1 ; i <= pageinfo.totalPages ; i++){%>
+              <li><a href="/?tab=<%=pageinfo.tag%>&page=<%=i%>"><%=i%></a></li>
+              <%}%>
+              <%}else{%>
+              <%for(var i = pageinfo.pageFrom;i <= pageinfo.pageTo;i++){%>
+              <li><a <%=(i === pageinfo.currentPage ? 'class=activate':"")%> href="/?tab=<%=pageinfo.tag%>&page=<%=i%>"><%=i%></a></li>
+              <%}%>
+              <%}%>
+              
+              <li><a href="#">»</a></li>
+            </ul>
+          </section>
+        </section>
       </section>
       <aside class="list-info">
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">用户信息</span>
-              </header>
-              <section class="aside-body">
-                  <a class="user-link" href="/"><img class="avator-user" src="/" alt=""></a>
-                  <span class="user-name">azathothes</span>
-                  <span class="user-motor">“这家伙很懒什么都没留下”</span>
-              </section>
+        <section class="user-info">
+          <header class="aside-header">
+            <span class="aside-header-title">用户信息</span>
+          </header>
+          <section class="aside-body">
+            <a class="user-link" href="/default"><img class="avator-user" src="/default" alt=""></a>
+            <span class="user-name">azathothes</span>
+            <span class="user-motor">“这家伙很懒什么都没留下”</span>
           </section>
-
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">提示</span>
-              </header>
-              <section class="aside-body tips">
-                  <span class="user-motor">don't trying to make some big news</span>
-              </section>
+        </section>
+        <section class="user-info">
+          <header class="aside-header">
+            <span class="aside-header-title">提示</span>
+          </header>
+          <section class="aside-body tips">
+            <span class="user-motor">don't trying to make some big news</span>
           </section>
-
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">归档</span>
-              </header>
-              <section class="aside-body">
-                  <ul class="classify">
-                  <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
-                  <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
-                  <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
-                  </ul>
-              </section>
+        </section>
+        <section class="user-info">
+          <header class="aside-header">
+            <span class="aside-header-title">归档</span>
+          </header>
+          <section class="aside-body">
+            <ul class="classify">
+              <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
+              <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
+              <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
+            </ul>
           </section>
+        </section>
       </aside>
-   </section>
-</body>
+    </section>
+  </body>
 </html>
