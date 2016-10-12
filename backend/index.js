@@ -4,7 +4,7 @@ const app = require('koa')();
 const views = require('koa-views');
 const serve = require('koa-static');
 const router = require('./routes/index_routes.js');
-const bodyparser = require('koa-body');
+const bodyparser = require('koa-body-parser');
 const session = require('koa-session');
 app.keys = ['wanlf\'s little srcret'];
 app.use(bodyparser());

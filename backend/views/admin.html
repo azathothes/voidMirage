@@ -21,16 +21,16 @@
 
             <form>
             	<span>选择板块:</span>
-            	<select name="tagname" id="tagname">
+            	<select id="tagname">
             		<option>请选择</option>
             		<option value="技术">技术</option>
             		<option value="生活">生活</option>
             		<option value="其他">其他</option>
             	</select>
               <span>归档:</span>
-              <input type="text"  name="classname" value="">
+              <input type="text" id='classify' value="">
             	<br>
-            	<textarea name="title" id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
+            	<textarea id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
             	<br>
               <textarea id="content" ></textarea>
               <br>
@@ -75,14 +75,7 @@
    </section>
    <link rel="stylesheet" href="/css/simplemde.min.css">
    <script src="/js/simplemde.min.js"></script>
-   <script type="text/javascript">
-     window.onload = ()=>{
-     var simplemde = new SimpleMDE({ element: document.getElementById("content") });
-
-      document.getElementById("submit").onclick = ()=>{
-        
-      }
-     }
-   </script>
+   <script src="/js/jquip.all.min.js"></script>
+   <script src="/js/content.min.js"></script>
 </body>
 </html>

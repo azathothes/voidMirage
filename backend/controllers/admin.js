@@ -16,7 +16,8 @@ exports.post_article = function*(){
 		return;
 	}
 	let content = this.request.body;
-	if(!content.classname || !content.title || !content.content || content.tagname === '请选择')
+	console.log(content);
+	if(!content.classify || !content.title || !content.content || content.tagname === '请选择')
 	{
 		this.body = JSON.stringify({isok:false,msg:'uncomplete article info.'});
 		return;
@@ -37,5 +38,5 @@ exports.post_article = function*(){
     	this.body = JSON.stringify({isok:false,msg:err});
 		return;
 	});
-	this.redirect('/');
+	this.body = JSON.stringify({isok:true,msg:'ok'});
 }
