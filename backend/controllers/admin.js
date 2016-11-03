@@ -1,5 +1,12 @@
 "use strict"
 const articles = require('../models/Article');
+const formidable = require('koa-formidable');
+const pathConvernter = require('path');
+const formOpt = {
+	uploadDir:'./Public/Images/ArticleImgs',
+	keepExtensions :true,
+
+};
 module.exports.admin = function*(){
 	if(!this.session.user)
 	{
@@ -39,4 +46,10 @@ exports.post_article = function*(){
 		return;
 	});
 	this.body = JSON.stringify({isok:true,msg:'ok'});
+}
+
+module.exports.uploadImg_article = function *(){
+	// parse a file upload
+    var form = yield formidable.parse(formOpt,this);
+    this.body = JSON.stringify({isok:true,filePath:`\Images\\ArticleImgs\\${pathConvernter.basename(form.files['file-imgs'].path)}`});
 }

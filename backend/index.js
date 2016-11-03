@@ -8,7 +8,7 @@ const bodyparser = require('koa-body-parser');
 const session = require('koa-session');
 app.keys = ['wanlf\'s little srcret'];
 app.use(bodyparser());
-app.use(serve(__dirname+'/dist'));
+app.use(serve(__dirname+'/Public'));
 app.use(views(__dirname + '/views',{
   map:{
     html:'ejs'

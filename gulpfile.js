@@ -5,12 +5,12 @@ var gulp = require('gulp'),
 gulp.task('css',()=>{
     gulp.src('./frontend/public/css/*.css')
         .pipe(minicss())
-        .pipe(gulp.dest('./backend/dist/css/'))
+        .pipe(gulp.dest('./backend/Public/dist/css/'))
 })
 gulp.task('js',()=>{
     gulp.src('./frontend/public/js/*.js')
         .pipe(minijs())
-        .pipe(gulp.dest('./backend/dist/js/'))
+        .pipe(gulp.dest('./backend/Public/dist/js/'))
 })
 
 gulp.task('watch',()=>{

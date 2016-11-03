@@ -3,7 +3,7 @@
 <head>
 	<title>admin--><--myblog</title>
 	<meta charset="utf8">
-	<link rel="stylesheet" href="/css/mainTheme.css">
+	<link rel="stylesheet" href="/dist/css/mainTheme.css">
 </head>
 <body>
 	<section class="nav">
@@ -73,9 +73,25 @@
           </section>
       </aside>
    </section>
-   <link rel="stylesheet" href="/css/simplemde.min.css">
-   <script src="/js/simplemde.min.js"></script>
-   <script src="/js/jquip.all.min.js"></script>
-   <script src="/js/content.min.js"></script>
+   <section id="uploadBack">
+      
+   </section>
+   <section id="uploadWin" >
+    <header>
+      <span>上传图片</span>
+      <button id="close-btn">x</button>
+    </header>
+    <article>
+      <form id="uploadForm" enctype="multipart/form-data">
+          <input type="file" id='files' name='file-imgs' style='margin-left: 124px;margin-top: 73px;'></input>
+          
+       </form>
+       <button id='sub-btn'>上 传</button>
+    </article>     
+   </section>
+   <link rel="stylesheet" href="/dist/css/simplemde.min.css">
+   <script src="/dist/js/simplemde.min.js"></script>
+   <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+   <script src="/dist/js/content.min.js"></script>
 </body>
 </html>
