@@ -463,3 +463,9 @@ pre{
 .editor-preview.editor-preview-active img{
     max-width: 100%;
 }
+#notice{
+        float: left;
+    margin-top: 40px;
+    margin-left: 20px;
+    
+}
