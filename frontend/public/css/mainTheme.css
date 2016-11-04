@@ -369,20 +369,25 @@ code{
     border-radius: 4px;
 }
 .reply{
-	    height: 100px;
     background: #fff;
     border-radius: 5px;
     margin-top: 10px;
 }
 .reply header{
-	background-color: #F6F6F6;
+	
+}   
+.header-reply{
+    background-color: #F6F6F6;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     height: 30px;
     overflow: hidden;
-}    
+} 
 .reply header span{
-	display: block;
+	
+}
+#ok{
+    display: block;
     margin: 5px;
 }
 blockquote{
@@ -467,5 +472,44 @@ pre{
         float: left;
     margin-top: 40px;
     margin-left: 20px;
-    
+}
+.reply-avator{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.reply-header{
+    overflow: hidden;
+}
+.reply-row{
+     
+        border-top: 1px solid #f0f0f0;
+    padding: 10px;
+}
+.replyer-link{
+    text-decoration: none;
+    font-size: 13px;
+    color: #666;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.reply-time{
+    font-size: 1px;
+    color:darkseagreen;
+    float: right;
+    margin-top: 5px
+}
+.reply-body{
+        width: 100%;
+    padding-left: 40px;
+    padding-right: 20px;
+    box-sizing: border-box;
+   
+}
+.reply-body p{
+    margin-top: 0px;
+}
+.user-reply{
+    margin-top: 10px;
 }

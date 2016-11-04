@@ -15,6 +15,10 @@ module.exports.admin = function*(){
 	}
    yield this.render('admin.html')
 }
+
+
+
+
 exports.post_article = function*(){
 
 	if(!this.session.user)
@@ -31,7 +35,7 @@ exports.post_article = function*(){
 	}
     (new articles({
 		art_title:content.title,
-		art_create_date:new Date(),
+		art_create_date:(new Date()).valueOf(),
 		art_author:{
 			author_name:this.session.user.usr_nick_name,
 			author_id:this.session.user._id,
@@ -40,13 +44,18 @@ exports.post_article = function*(){
 		art_classify:['test_class'],
 		art_content:content.content.trim(),
 		art_tag_info:content.tagname,
-		art_last_reply:new Date()
+		art_last_reply:(new Date()).valueOf()
 	})).save().catch(err=>{
     	this.body = JSON.stringify({isok:false,msg:err});
 		return;
 	});
 	this.body = JSON.stringify({isok:true,msg:'ok'});
 }
+
+
+
+
+
 
 module.exports.uploadImg_article = function *(){
 	// parse a file upload

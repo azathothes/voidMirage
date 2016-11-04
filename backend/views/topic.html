@@ -1,78 +1,128 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>admin--><--myblog</title>
-	<meta charset="utf8">
-	<link rel="stylesheet" href="/dist/css/mainTheme.css">
-</head>
-<body>
-	<section class="nav">
-        <a href="#"><h2 class="site-name">FunCulb</h2></a>
-        <ul class="nav-bar">
-            <li><a class="nav-link" href="#">关于</a></li>
-        </ul>
+  <head>
+    <title>admin--><--myblog</title>  
+    <meta charset="utf8">
+    <link rel="stylesheet" href="/dist/css/mainTheme.css">
+  </head>
+  <body>
+    <section class="nav">
+      <a href="#"><h2 class="site-name">FunCulb</h2></a>
+      <ul class="nav-bar">
+        <li><a class="nav-link" href="#">关于</a></li>
+      </ul>
     </section>
-	<section class="container">
+    <section class="container">
       <section class="list-articles">
-          <section class="art-content">
-            <header>
-              <%if(article.art_is_top !== 0){%>
-              <span class="tag-name good">置顶</span>
-              <%}%>
-              <h2 class="content-title"><%=article.art_title%></h2>
-              <br>
-              <ul class="art-info">
-                <li>●发布于<%=article.art_create_date%></li>
-                <li>●作者<%=article.art_author.author_name%></li>
-                <li>●<%=article.art_visit_count%> 次浏览</li>
-                <li>●最后一次编辑是 <%=article.art_last_reply%></li>
-                <li>●来自 <%=article.art_tag_info%></li>
-              </ul>
-
+        <section class="art-content">
+          <header>
+            <%if(article.art_is_top !== 0){%>
+            <span class="tag-name good">置顶</span>
+            <%}%>
+            <h2 class="content-title"><%=article.art_title%></h2>
+            <br>
+            <ul class="art-info">
+              <li>●发布于<%=create_date%></li>
+              <li>●作者<%=article.art_author.author_name%></li>
+              <li>●<%=article.art_visit_count%> 次浏览</li>
+              <li>●最后一次编辑是 <%=last_reply%></li>
+              <li>●来自 <%=article.art_tag_info%></li>
+            </ul>
           </header>
-          <article id="content-real"><%-article.art_content%></article>
-          </section>
-          <section class="reply"> 
-              <header><span id='ok'>9回复</span></header>
-          </section>
+        <article id="content-real"><%-article.art_content%></article>
       </section>
-      <aside class="list-info">
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">用户信息</span>
-              </header>
-              <section class="aside-body">
-                  <a class="user-link" href="/"><img class="avator-user" src="/" alt=""></a>
-                  <span class="user-name">azathothes</span>
-                  <span class="user-motor">“这家伙很懒什么都没留下”</span>
-              </section>
+      <section class="reply">
+        <header class="header-reply"><span id='ok'>9回复</span></header>
+        <section id="reply-lists">
+          <section class="reply-row">
+            <header class="reply-header">
+              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
+              <a class="replyer-link" href="/user/name">userName</a>
+              <span class="reply-time">2016/2/3 11:32</span>
+            </header>
+            <article class="reply-body">
+              
+              <p>content here</p>
+            </article>
           </section>
+          <section class="reply-row">
+            <header class="reply-header">
+              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
+              <a class="replyer-link" href="/user/name">userName</a>
+              <span class="reply-time">2016/2/3 11:32</span>
+            </header>
+            <article class="reply-body">
+              
+              <p>content here</p>
+            </article>
+          </section>
+          <section class="reply-row">
+            <header class="reply-header">
+              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
+              <a class="replyer-link" href="/user/name">userName</a>
+              <span class="reply-time">2016/2/3 11:32</span>
+            </header>
+            <article class="reply-body">
+              
+              <p>content here</p>
+            </article>
+          </section>
+          <section class="reply-row">
+            <header class="reply-header">
+              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
+              <a class="replyer-link" href="/user/name">userName</a>
+              <span class="reply-time">2016/2/3 11:32</span>
+            </header>
+            <article class="reply-body">
+              
+              <p>content here</p>
+            </article>
+          </section>
+        </section>
+      </section>
 
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">提示</span>
-              </header>
-              <section class="aside-body tips">
-                  <span class="user-motor">don't trying to make some big news</span>
-              </section>
-          </section>
-
-          <section class="user-info">
-              <header class="aside-header">
-                  <span class="aside-header-title">归档</span>
-              </header>
-              <section class="aside-body">
-                  <ul class="classify">
-                  <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
-                  <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
-                  <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
-                  </ul>
-              </section>
-          </section>
-      </aside>
-   </section>
-   
-   <!-- <script type="text/javascript" src="/js/markdown.min.js"></script> -->
-   <!-- <script type="text/javascript" src="/js/content.min.js"></script> -->
+      <section class="user-reply">
+        <header class="header-reply"><span class="aside-header-title">添加回复</span></header>
+        <section>
+          
+        </section>
+      </section>
+    </section>
+    <aside class="list-info">
+      <section class="user-info">
+        <header class="aside-header">
+          <span class="aside-header-title">用户信息</span>
+        </header>
+        <section class="aside-body">
+          <a class="user-link" href="/"><img class="avator-user" src="/" alt=""></a>
+          <span class="user-name">azathothes</span>
+          <span class="user-motor">“这家伙很懒什么都没留下”</span>
+        </section>
+      </section>
+      <section class="user-info">
+        <header class="aside-header">
+          <span class="aside-header-title">提示</span>
+        </header>
+        <section class="aside-body tips">
+          <span class="user-motor">don't trying to make some big news</span>
+        </section>
+      </section>
+      <section class="user-info">
+        <header class="aside-header">
+          <span class="aside-header-title">归档</span>
+        </header>
+        <section class="aside-body">
+          <ul class="classify">
+            <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
+            <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
+            <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
+          </ul>
+        </section>
+      </section>
+    </aside>
+  </section>
+  
+  <!-- <script type="text/javascript" src="/js/markdown.min.js"></script> -->
+  <!-- <script type="text/javascript" src="/js/content.min.js"></script> -->
 </body>
 </html>
