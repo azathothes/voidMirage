@@ -93,5 +93,104 @@
    <script src="/dist/js/simplemde.min.js"></script>
    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
    <script src="/dist/js/content.min.js"></script>
+
+   <script type="text/javascript">
+     //上传文章图片
+  document.getElementById('sub-btn').onclick = function (){
+    var filename = $('#files')[0].value;
+    filename = filename.toLowerCase();
+    var test = new RegExp('^.+?\\.(jpg||png||gif)$')
+    if(filename === "")
+    {
+      $('#notice').text("请选择一个文件上传！");
+      return;
+    }
+
+    if(!test.test(filename))
+    {
+      $('#notice').text("图片文件格式错误！");
+      return;
+    }
+
+
+    $.ajax({
+      url: '/uploadImg_article',
+        type: 'POST',
+        cache: false,
+        data: new FormData($('#uploadForm')[0]),
+        processData: false,
+        contentType: false,
+        success:function(res){
+          res = JSON.parse(res);
+          if(res.isok)
+          {
+            console.log(res);
+            document.getElementById( "uploadBack" ).style.visibility = "collapse"; 
+          document.getElementById( "uploadWin" ).style.visibility = "collapse";
+          simplemde.value(simplemde.value()+'![](\\'+res.filePath+')');
+          $('#files')[0].value="";
+          $('#notice').text("");
+
+          }
+          else
+          {
+          $('#notice').text("服务器错误！");
+          }
+        }
+      })
+  }
+
+
+
+  var submitBtn = document.getElementById('submit');
+  submitBtn.onclick = function(){
+    var data = {};
+    var tagname = document.getElementById('tagname');
+    if(tagname.value === "" || tagname.value === "请选择")
+    {
+      alert('请选择文章类别！');
+      return;
+    }
+    data.tagname = tagname.value;
+    var classify = document.getElementById('classify');
+    if(classify.value === "")
+    {
+      alert('请为文章归档！');
+      return;
+    }
+    data.classify = classify.value;
+      var title = document.getElementById('title');
+      if(title.value === "")
+      {
+        alert('缺少文章名！');
+        return;
+      }
+      data.title = title.value;
+      var content = simplemde.value();
+      if(content === "")
+      {
+        alert('缺少文章类容！')
+        return;
+      }
+      data.content = content;
+      $.post('/post_article',data,function(msg){
+        console.log(msg);
+        var result = JSON.parse(msg);
+        console.log(result);
+        if(!result.isok)
+        {
+          alert('提交文章失败,原因: '+result.msg);
+          return;
+        }
+        alert('成功提交！');
+        window.location = '/';
+      });
+  }
+
+  document.getElementById('close-btn').onclick = function(){
+    document.getElementById( "uploadBack" ).style.visibility = "collapse"; 
+    document.getElementById( "uploadWin" ).style.visibility = "collapse";
+  }
+   </script>
 </body>
 </html>

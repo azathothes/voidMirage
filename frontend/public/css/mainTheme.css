@@ -512,4 +512,17 @@ pre{
 }
 .user-reply{
     margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+#sub-reply{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid #80bd01;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #80bd01;
+    color: white;
+    margin: 10px;
 }

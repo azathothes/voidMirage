@@ -20,6 +20,7 @@
             <span class="tag-name good">置顶</span>
             <%}%>
             <h2 class="content-title"><%=article.art_title%></h2>
+            <span style="visibility: hidden;" id="art_id"><%=article._id%></span>
             <br>
             <ul class="art-info">
               <li>●发布于<%=create_date%></li>
@@ -31,62 +32,40 @@
           </header>
         <article id="content-real"><%-article.art_content%></article>
       </section>
+      <%if(article.art_reply.length>0){%>
       <section class="reply">
-        <header class="header-reply"><span id='ok'>9回复</span></header>
+        <header class="header-reply"><span id='ok'><%=article.art_reply.length%>回复</span></header>
         <section id="reply-lists">
+                            
+          <%for(var i = 0;i<article.art_reply.length;i++){%>
           <section class="reply-row">
             <header class="reply-header">
-              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
-              <a class="replyer-link" href="/user/name">userName</a>
-              <span class="reply-time">2016/2/3 11:32</span>
+              <a href="user/<%=article.art_reply[i].reply_user._id%>"><img class="reply-avator"           src="<%=article.art_reply[i].reply_user.usr_avator%>"></a>
+              <a class="replyer-link" href="user/<%=article.art_reply[i].reply_user._id%>"><%=article.art_reply[i].reply_user.usr_nick_name%></a>
+              <span class="reply-time"><%=article.art_reply[i].reply_time%></span>
             </header>
             <article class="reply-body">
-              
-              <p>content here</p>
+              <%-article.art_reply[i].reply_content%>
             </article>
           </section>
-          <section class="reply-row">
-            <header class="reply-header">
-              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
-              <a class="replyer-link" href="/user/name">userName</a>
-              <span class="reply-time">2016/2/3 11:32</span>
-            </header>
-            <article class="reply-body">
-              
-              <p>content here</p>
-            </article>
-          </section>
-          <section class="reply-row">
-            <header class="reply-header">
-              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
-              <a class="replyer-link" href="/user/name">userName</a>
-              <span class="reply-time">2016/2/3 11:32</span>
-            </header>
-            <article class="reply-body">
-              
-              <p>content here</p>
-            </article>
-          </section>
-          <section class="reply-row">
-            <header class="reply-header">
-              <a href="/user/wanlf"><img class="reply-avator" src="/asd/asd.jpg"></a>
-              <a class="replyer-link" href="/user/name">userName</a>
-              <span class="reply-time">2016/2/3 11:32</span>
-            </header>
-            <article class="reply-body">
-              
-              <p>content here</p>
-            </article>
-          </section>
+          <%}%>
+
+
         </section>
       </section>
-
+      <%}%>
+<%if(visitor){%>
       <section class="user-reply">
         <header class="header-reply"><span class="aside-header-title">添加回复</span></header>
+        
+
         <section>
-          
+          <textarea id="content"></textarea>
+          <button id="sub-reply">回复</button>
         </section>
+        
       </section>
+      <%}%>
     </section>
     <aside class="list-info">
       <section class="user-info">
@@ -121,8 +100,124 @@
       </section>
     </aside>
   </section>
-  
-  <!-- <script type="text/javascript" src="/js/markdown.min.js"></script> -->
-  <!-- <script type="text/javascript" src="/js/content.min.js"></script> -->
+  <section id="uploadBack">
+      
+   </section>
+  <section id="uploadWin" >
+    <header>
+      <span>上传图片</span>
+      <button id="close-btn">x</button>
+    </header>
+    <article>
+      <form id="uploadForm" enctype="multipart/form-data">
+          <input type="file" id='files' name='file-imgs' style='margin-left: 124px;margin-top: 73px;'></input>
+       </form>
+       <span id="notice"></span>
+       <button id='sub-btn'>上 传</button>
+    </article>     
+   </section>
+   <link rel="stylesheet" href="/dist/css/simplemde.min.css">
+   <script src="/dist/js/simplemde.min.js"></script>
+   <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+   <script src="/dist/js/content.min.js"></script>
+   <style type="text/css">
+   .CodeMirror, .CodeMirror-scroll {
+      min-height: 100px;
+    }
+    .CodeMirror {
+      height: 100px ! important;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #bcbcbc;
+    }
+    .editor-toolbar {
+      border-top: 0px; 
+      border-left: 0px; 
+      border-right: 0px;
+    }
+   </style>
+   <script type="text/javascript">
+      //上传文章图片
+  document.getElementById('sub-btn').onclick = function (){
+    var filename = $('#files')[0].value;
+    filename = filename.toLowerCase();
+    var test = new RegExp('^.+?\\.(jpg||png||gif)$')
+    if(filename === "")
+    {
+      $('#notice').text("请选择一个文件上传！");
+      return;
+    }
+
+    if(!test.test(filename))
+    {
+      $('#notice').text("图片文件格式错误！");
+      return;
+    }
+
+
+    $.ajax({
+      url: '/uploadImg_article',
+        type: 'POST',
+        cache: false,
+        data: new FormData($('#uploadForm')[0]),
+        processData: false,
+        contentType: false,
+        success:function(res){
+          res = JSON.parse(res);
+          if(res.isok)
+          {
+            console.log(res);
+            document.getElementById( "uploadBack" ).style.visibility = "collapse"; 
+          document.getElementById( "uploadWin" ).style.visibility = "collapse";
+          simplemde.value(simplemde.value()+'![](\\'+res.filePath+')');
+          $('#files')[0].value="";
+          $('#notice').text("");
+
+          }
+          else
+          {
+          $('#notice').text("服务器错误！");
+          }
+        }
+      })
+  }
+
+
+
+  var submitBtn = document.getElementById('sub-reply');
+  submitBtn.onclick = function(){
+    var data = {};
+    
+      var content = simplemde.value();
+      if(content === "")
+      {
+        alert('缺少评论类容！')
+        return;
+      }
+      data.content = content;
+      data.reply_art_id = $('#art_id').text();
+
+
+
+      $.post('/article_reply',data,function(msg){
+        
+        var result = JSON.parse(msg);
+        alert(msg)
+        if(!result.isok)
+        {
+          alert('评论文章失败,原因: '+result.msg);
+          return;
+        }
+
+        location.reload();
+        
+      });
+  }
+
+  document.getElementById('close-btn').onclick = function(){
+    document.getElementById( "uploadBack" ).style.visibility = "collapse"; 
+    document.getElementById( "uploadWin" ).style.visibility = "collapse";
+  }
+   </script>
 </body>
 </html>
