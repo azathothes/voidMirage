@@ -9,7 +9,7 @@ var Article = mongoose.Schema({
         author_name:String
     },
     art_visit_count:{type:Number,default:0},
-    art_last_reply:{type:String},
+    art_last_reply:{type:Date},
     art_classify:[String],
     art_content:String,
     art_reply:[],

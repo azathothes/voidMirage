@@ -14,6 +14,6 @@ app.use(views(__dirname + '/views',{
     html:'ejs'
   }
 }))
-app.use(session({maxage:3*60*1000,key:'test-session-key'},app));
+app.use(session({maxAge:3*60*1000,key:'test-session-key'},app));
 app.use(router.routes());
 app.listen(3000);

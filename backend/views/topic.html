@@ -42,7 +42,7 @@
             <header class="reply-header">
               <a href="user/<%=article.art_reply[i].reply_user._id%>"><img class="reply-avator"           src="<%=article.art_reply[i].reply_user.usr_avator%>"></a>
               <a class="replyer-link" href="user/<%=article.art_reply[i].reply_user._id%>"><%=article.art_reply[i].reply_user.usr_nick_name%></a>
-              <span class="reply-time"><%=article.art_reply[i].reply_time%></span>
+              <span class="reply-time"><%=moment(article.art_reply[i].reply_time).fromNow()%></span>
             </header>
             <article class="reply-body">
               <%-article.art_reply[i].reply_content%>

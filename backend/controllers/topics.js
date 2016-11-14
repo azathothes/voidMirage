@@ -24,6 +24,7 @@ module.exports.topic = function*(){
   								  ,create_date:moment(arts.art_create_date).fromNow()
   								  ,last_reply:moment(arts.art_last_reply).fromNow()
   								  ,visitor:this.session.user
+  								  ,moment:moment
   								});
 }
 
@@ -40,12 +41,12 @@ module.exports.reply = function*(){
 		return;
 	}
 	var replytime_unix = (new Date()).valueOf();
-    var replytime = moment(replytime_unix).fromNow();
+   
     var markowned_content = markdown.toHTML(reply.content);
     console.log(markowned_content);
 	yield article.update({_id:reply.reply_art_id},{ $push:{art_reply:{
 		reply_user:this.session.user,
-		reply_time:replytime,
+		reply_time:replytime_unix,
 		reply_content:markowned_content
 	}},$set:{art_last_reply:replytime_unix}});
 

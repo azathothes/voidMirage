@@ -32,7 +32,7 @@
             </span>
             <span class="tag-name"><%=item.art_tag_info%></span>
             <a class="art-title" href="/topic/<%=item._id%>"><span><%=item.art_title%></span></a>
-            <span class="rep-time"><%=`${(new Date(item.art_last_reply)).toLocaleDateString()} ${(new Date(item.art_last_reply)).getHours()}:${(new Date(item.art_last_reply)).getMinutes()}`%></span>
+            <span class="rep-time"><%=`${(new Date(item.art_last_reply)).toLocaleDateString()} ${(new Date(item.art_last_reply)).getHours()}:${(new Date(item.art_last_reply)).getMinutes() < 10 ? '0'+(new Date(item.art_last_reply)).getMinutes():(new Date(item.art_last_reply)).getMinutes()}`%></span>
             <a class="art-rep-avt" href="#">
               <img src="/default" alt="">
             </a>
