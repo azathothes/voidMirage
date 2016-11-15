@@ -2,6 +2,8 @@
 const articles = require('../models/Article');
 const formidable = require('koa-formidable');
 const pathConvernter = require('path');
+const classifys = require('../models/Classify')
+
 const formOpt = {
 	uploadDir:'./Public/Images/ArticleImgs',
 	keepExtensions :true,
@@ -13,7 +15,9 @@ module.exports.admin = function*(){
 		this.redirect('/signin?return=admin');
 		return;
 	}
-   yield this.render('admin.html')
+	
+
+    yield this.render('admin.html')
 }
 
 
