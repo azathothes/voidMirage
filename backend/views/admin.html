@@ -28,9 +28,9 @@
             		<option value="其他">其他</option>
             	</select>
               <span>归档:</span>
-              <input id="classify-sub"></input>
+              <textarea id="classify-sub" placeholder="多个归档以';'分割" spellcheck="false" cols="30" rows="1"></textarea>
             	<br>
-            	<textarea id="title" placeholder="标题字数10字以上" cols="30" rows="1"></textarea>
+            	<textarea id="title" placeholder="标题字数10字以上" cols="30" spellcheck="false" rows="1"></textarea>
             	<br>
               <textarea id="content" ></textarea>
               <br>
@@ -61,7 +61,7 @@
 
           <section class="user-info">
               <header class="aside-header">
-                  <span class="aside-header-title">归档</span>
+                  <span class="aside-header-title">归ss档</span>
               </header>
               <section class="aside-body">
                   <ul class="classify">
@@ -152,13 +152,19 @@
       return;
     }
     data.tagname = tagname.value;
-    var classify = document.getElementById('classify');
-    if(classify.value === "")
+    var classify = [];
+    document.getElementById('classify-sub').value.split(';').forEach(function(a){if(a !== ""){
+      classify.push(a);
+    }})
+
+
+
+    if(!classify || classify.length == 0)
     {
       alert('请为文章归档！');
       return;
     }
-    data.classify = classify.value;
+    data.classify = classify;
       var title = document.getElementById('title');
       if(title.value === "")
       {

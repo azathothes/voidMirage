@@ -77,18 +77,20 @@
             <span class="user-motor">don't trying to make some big news</span>
           </section>
         </section>
+        <%if(class_names){%>
         <section class="user-info">
           <header class="aside-header">
             <span class="aside-header-title">归档</span>
           </header>
           <section class="aside-body">
             <ul class="classify">
-              <li><a href="/" class="class-tag">技术</a>      <span class="class-count">(3)</span></li>
-              <li><a href="/" class="class-tag">JavaScript</a><span class="class-count">(4)</span></li>
-              <li><a href="/" class="class-tag">NodeJs</a>    <span class="class-count">(4)</span></li>
+            <%for(var i of class_names){%>
+              <li><a href="/?class=<%-i.Classify_name%>" class="class-tag"><%-i.Classify_name%></a>      <span class="class-count">(<%-i.Classify_count%>)</span></li>
+            <%}%>
             </ul>
           </section>
         </section>
+        <%}%>
       </aside>
     </section>
   </body>

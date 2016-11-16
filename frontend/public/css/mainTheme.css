@@ -241,6 +241,7 @@ body{
 	vertical-align: middle;
     display: inline-block;
     margin-left: 7px;
+    text-decoration: none;
 }
 .class-count{
 	vertical-align: middle;
@@ -527,7 +528,11 @@ pre{
     margin: 10px;
 }
 #classify-sub{
-    width: 66%;
+        width: 65%;
+    float: right;
+    font-family: inherit;
+    resize: none;
     height: 20px;
-    border-radius: 6px;
+    padding: 5px;
+    border-radius: 5px;
 }
