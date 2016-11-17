@@ -536,3 +536,30 @@ pre{
     padding: 5px;
     border-radius: 5px;
 }
+#content-footer{
+    padding: 10px;
+}
+#content-footer a{
+    text-decoration: none;
+    color: gray;
+    cursor: pointer;
+}
+#content-footer span{
+    float: left;
+    color: gray;
+    font-size: 12px;
+}
+#content-footer ul{
+    padding: 0;
+    list-style: none;
+    margin: 0px;
+    display: inline-block;
+    overflow: hidden;
+}
+#content-footer ul li{ 
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+    display: inline-block;
+    float: left;
+}

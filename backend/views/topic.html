@@ -31,6 +31,17 @@
             </ul>
           </header>
         <article id="content-real"><%-article.art_content%></article>
+        <%if(article.art_classify && article.art_classify.length>0){%>
+        <footer id="content-footer">
+            <span>标签：</span>
+            <ul>
+              <%for(var i of article.art_classify){%>
+                <li><a href="/?class=<%=i%>"><%=i%></a></li>
+              <%}%>
+            </ul>
+        </footer>
+        <%}%>
+        
       </section>
       <%if(article.art_reply.length>0){%>
       <section class="reply">
