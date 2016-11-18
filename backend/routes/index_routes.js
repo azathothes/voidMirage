@@ -6,7 +6,7 @@ const topic = require('../controllers/topics.js');
 router.get('/',index.index);
 router.get('/admin',admin.admin);
 router.post('/post_article',admin.post_article);
-//router.get('/about');
+router.get('/about',index.about);
 router.get('/signin',index.signin_page);
 router.post('/signin',index.signin_data)
 router.get('/topic/:art_id',topic.topic);

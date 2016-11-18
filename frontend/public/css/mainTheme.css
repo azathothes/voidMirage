@@ -571,3 +571,38 @@ pre{
     font-size: 2em;
     text-align: center;
 }
+#content-abt{
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    top: 55px;
+    min-width: 1349px;
+}
+#aside-abt{
+    margin: 10px;
+    height: 300px;
+    width: 20%;
+    float: left;
+    /* box-sizing: border-box; */
+    box-sizing: content-box;
+    background: aliceblue;
+    box-shadow: 0px 2px 5px 1px #bcbcbc;
+}
+#content-mk{
+    margin: 10px;
+    float: right;
+    height: 100px;
+    width: 77%;
+    box-sizing: border-box;
+    background: #FAEBF0;
+    box-shadow: 0px 0px 3px 1px #bababa;
+}
+#aside-abt img{
+    width: 180px;
+    height: 180px;
+    margin: 20px 44px;
+}
+#aside-abt ul{
+    margin: 0px;
+    padding-left: 62px;
+}

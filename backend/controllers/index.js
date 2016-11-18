@@ -102,3 +102,8 @@ module.exports.signin_data = function*(){
   }
   this.redirect('/');
 }
+
+
+module.exports.about = function *(){
+    yield this.render('about');
+}
