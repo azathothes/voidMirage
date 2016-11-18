@@ -563,3 +563,11 @@ pre{
     display: inline-block;
     float: left;
 }
+#notfound-title{
+    font-size: 10em;
+    text-align: center;
+}
+#notfound-title-little{
+    font-size: 2em;
+    text-align: center;
+}
