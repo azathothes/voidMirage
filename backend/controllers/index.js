@@ -74,7 +74,7 @@ module.exports.signin_page = function*(){
       this.redirect('/'+returnurl.return || "");
       return;
   }
-    yield this.render('signup',{returnurl:returnurl});
+    yield this.render('signin',{returnurl:returnurl});
 }
 
 module.exports.signin_data = function*(){
